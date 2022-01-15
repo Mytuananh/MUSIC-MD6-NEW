@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {SignInForm} from '../model/SignInForm';
 import {JwtResponse} from '../model/JwtResponse';
 import {ChangeAvatar} from '../model/ChangeAvatar';
+import {ChangePassword} from '../model/ChangePassword';
 
 
 @Injectable({
@@ -16,12 +17,16 @@ export class AuthService {
   private API_SIGNUP = environment.API_LOCAL + 'signup';
   private API_SIGNIN = environment.API_LOCAL + 'signin';
   private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
+  private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
   // API_SERVE
   data: boolean;
   // private API_SIGNUP= environment.API_SERVE+'signup';
   // private API_SIGNIN = environment.API_SERVE+'signin';
   // private API_CHANGE_AVATAR = environment.API_SERVE+'change-avatar';
   constructor(private http: HttpClient) { }
+  changePassword(changePassword: ChangePassword): Observable<any> {
+    return this.http.put<any>(this.API_CHANGE_PASSWORD, changePassword);
+  }
   signUp(signUpForm: SignUpForm): Observable<any> {
     return this.http.post<any>(this.API_SIGNUP, signUpForm);
   }

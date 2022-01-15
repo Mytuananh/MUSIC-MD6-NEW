@@ -161,7 +161,7 @@
 						</span>
         </div>
         <div class="ms_top_trend">
-          <span><a href="#"  class="ms_color">Trending Songs :</a></span> <span class="top_marquee"><a href="#">Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley (+8 More)</a></span>
+            <a   routerLink="create-song" class="ms_btn login_btn"><span>Add Song</span></a>
         </div>
       </div>
       <div class="ms_top_right">
@@ -169,10 +169,10 @@
           <a *ngIf="checkLogin" (click)="Logout()" class="ms_btn login_btn"><span>Log Out</span></a>
         </div>
         <div class="ms_top_btn">
-          <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn" data-toggle="modal" data-target="#myModal"><span>register</span></a>
+          <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn"><span>register</span></a>
           <a *ngIf="!checkLogin" routerLink="login" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
-          <a *ngIf="checkLogin"  mat-button class="docs-button"> <img routerLink="change-avatar" class="avatar" [src]="avatar"></a>
-          <a *ngIf="checkLogin" mat-button><span>{{name}}</span></a>
+          <a *ngIf="checkLogin"  mat-button class="docs-button"> <img routerLink="change-avatar" class="avatar" [src]="avatar" alt=""></a>
+          <a *ngIf="checkLogin" routerLink="change-manage" mat-button><span>{{name}}</span></a>
         </div>
       </div>
     </div>
