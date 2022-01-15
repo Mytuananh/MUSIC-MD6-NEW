@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   Form: any = {};
   signInForm: SignInForm;
   checkRegister = false;
+  status = 'Please fill in the form Login -->';
   constructor(private authService: AuthService,
               private tokenService: TokenService,
               private router: Router) { }
@@ -43,6 +44,10 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         });
       }
+      }
+      else {
+        this.status = 'Username or password false, please login again';
+        this.checkRegister = true;
       }
     });
   }

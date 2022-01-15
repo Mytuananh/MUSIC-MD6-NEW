@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
       this.form.username,
       this.form.password,
       this.form.re_password,
-      this.form.phoneNumber
+      this.form.phoneNumber,
     );
     this.authService.signUp(this.signUpForm).subscribe(data => {
       // tslint:disable-next-line:triple-equals
