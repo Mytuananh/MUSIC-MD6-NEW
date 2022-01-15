@@ -39,6 +39,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import { ListSongComponent } from './song-manager/list-song/list-song.component';
 import {MatTabsModule} from '@angular/material/tabs';
+
+import { ChangeProfileComponent } from './manager-profile/change-profile/change-profile.component';
+import { ChangePasswrordComponent } from './manager-profile/change-passwrord/change-passwrord.component';
+import { ChangeManageComponent } from './manager-profile/change-manage/change-manage.component';
+
 import { DialogComponent } from './song-manager/dialog/dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditSongComponent } from './song-manager/edit-song/edit-song.component';
@@ -52,6 +57,7 @@ import { SingerListComponent } from './singer-manager/singer-list/singer-list.co
 
 
 
+
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
   {path: 'register', component: RegisterComponent},
@@ -59,6 +65,10 @@ export const appRoutes: Routes = [
   {path: 'admin-account', component: AdminAccountComponent},
   {path: 'upload-avatar', component: UploadAvatarComponent},
   {path: 'change-avatar', component: ChangeAvatarComponent},
+  {path: 'change-password' , component: ChangePasswrordComponent},
+  {path: 'change-manage', component: ChangeManageComponent},
+  {path: 'change-profile', component: ChangeProfileComponent},
+
   {path: 'update-song/:id', component: EditSongComponent},
   {path: 'create-song', component: CreateSongComponent},
   {path: 'update-singer/:id', component: EditSingerComponent},
@@ -71,7 +81,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
