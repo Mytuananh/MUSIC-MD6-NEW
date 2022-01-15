@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
   ngSubmit() {
     this.signUpForm = new SignUpForm(
       this.form.username,
-      this.form.phoneNumber,
       this.form.password,
       this.form.re_password,
+      this.form.phoneNumber,
     );
     this.authService.signUp(this.signUpForm).subscribe(data => {
       // tslint:disable-next-line:triple-equals

@@ -7,7 +7,7 @@
                     <!--USERNAME-->
                     <mat-form-field style="width: 400px" appearance="outline">
                         <mat-label>UserName</mat-label>
-                        <input matInput placeholder="Enter your username" name="username" [useMap]="" ] [(ngModel)]="form.username" #username="ngModel" minlength="3" maxlength="50" required>
+                        <input matInput placeholder="Enter your username" name="username"  [(ngModel)]="form.username" #username="ngModel" minlength="3" maxlength="50" required>
                         <mat-icon matSuffix>account_circle</mat-icon>
                         <mat-error *ngIf="username.hasError('required')">Your username is required.</mat-error>
                         <mat-error *ngIf="username.hasError('minlength')">Your username must more than 3 character.</mat-error>

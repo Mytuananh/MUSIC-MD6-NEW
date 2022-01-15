@@ -39,6 +39,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import { ListSongComponent } from './song-manager/list-song/list-song.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ChangeProfileComponent } from './manager-profile/change-profile/change-profile.component';
+import { ChangePasswrordComponent } from './manager-profile/change-passwrord/change-passwrord.component';
+import { ChangeManageComponent } from './manager-profile/change-manage/change-manage.component';
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -47,6 +50,9 @@ export const appRoutes: Routes = [
   {path: 'admin-account', component: AdminAccountComponent},
   {path: 'upload-avatar', component: UploadAvatarComponent},
   {path: 'change-avatar', component: ChangeAvatarComponent},
+  {path: 'change-password' , component: ChangePasswrordComponent},
+  {path: 'change-manage', component: ChangeManageComponent},
+  {path: 'change-profile', component: ChangeProfileComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -56,7 +62,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, ChangeProfileComponent, ChangePasswrordComponent, ChangeManageComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
+                <div class="ms_profile_wrapper">
                 <form class="change-password" #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
                     <mat-form-field style="width: 400px" appearance="outline">
                         <mat-label>Enter your OldPassword</mat-label>
@@ -18,7 +19,7 @@
                         <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
                             <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="newPassword.hasError('required')">Your name is required.</mat-error>
+                        <mat-error *ngIf="newPassword.hasError('required')">Your password is required.</mat-error>
                         <mat-error *ngIf="newPassword.hasError('minlength')">Your password must more than 6 character</mat-error>
                     </mat-form-field><br>
                     <mat-form-field style="width: 400px" appearance="outline">
@@ -27,13 +28,14 @@
                         <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
                             <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="re_newPassword.hasError('required')">Your name is required.</mat-error>
+                        <mat-error *ngIf="re_newPassword.hasError('required')">Your password is required.</mat-error>
                         <mat-error *ngIf="re_newPassword.hasError('minlength')">Your password must more than 6 character</mat-error>
                     </mat-form-field><br>
                     <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Submit
                         <mat-icon matSuffix>login</mat-icon>
                     </button>
                 </form>
+                </div>
             </mat-card>
         </div>
     </div>
