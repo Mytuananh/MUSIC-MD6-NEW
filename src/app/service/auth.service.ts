@@ -7,6 +7,7 @@ import {SignInForm} from '../model/SignInForm';
 import {JwtResponse} from '../model/JwtResponse';
 import {ChangeAvatar} from '../model/ChangeAvatar';
 import {ChangePassword} from '../model/ChangePassword';
+import {ChangeProfile} from '../model/ChangeProfile';
 
 
 @Injectable({
@@ -18,6 +19,8 @@ export class AuthService {
   private API_SIGNIN = environment.API_LOCAL + 'signin';
   private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
   private API_CHANGE_PASSWORD = environment.API_LOCAL + 'change-password';
+  private API_CHANGE_PROFILE = environment.API_LOCAL + 'change-profile';
+
   // API_SERVE
   data: boolean;
   // private API_SIGNUP= environment.API_SERVE+'signup';
@@ -27,6 +30,9 @@ export class AuthService {
 
   changePassword(changePassword: ChangePassword): Observable<any> {
     return this.http.put<any>(this.API_CHANGE_PASSWORD, changePassword);
+  }
+  changeProfile(changeProfile: ChangeProfile): Observable<any> {
+    return this.http.put<any>(this.API_CHANGE_PROFILE, changeProfile);
   }
   signUp(signUpForm: SignUpForm): Observable<any> {
     return this.http.post<any>(this.API_SIGNUP, signUpForm);
