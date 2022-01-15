@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12" style="margin-top: 50px">
+            <mat-card style="margin: 50px 0">
+                <form class="form_register" #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
+                    <mat-error class="alert alert-primary">{{status}}</mat-error>
+                    <!--USERNAME-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input matInput placeholder="Enter your username" name="username" [useMap]="" ] [(ngModel)]="form.username" #username="ngModel" minlength="3" maxlength="50" required>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf="username.hasError('required')">Your username is required.</mat-error>
+                        <mat-error *ngIf="username.hasError('minlength')">Your username must more than 3 character.</mat-error>
+                    </mat-form-field><br>
+
+                    <!--PASSWORD-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="form.password" #password="ngModel" minlength="6" maxlength="30" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="password.hasError('required')">Your password is required.</mat-error>
+                        <mat-error *ngIf="password.hasError('minlength')">Your password must more than 6 character</mat-error>
+                    </mat-form-field><br>
+                    <!--PASSWORD-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>Enter your re_password</mat-label>
+                        <input matInput [type]="hide1 ? 'password' : 'text'" name="re_password" [(ngModel)]="form.re_password" #re_password="ngModel" minlength="6" maxlength="30" required>
+                        <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                            <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="re_password.hasError('required')">Your password is required.</mat-error>
+                        <mat-error *ngIf="re_password.hasError('minlength')">Your password must more than 6 character</mat-error>
+                    </mat-form-field><br>
+                    <!--PHONENUMBER-->
+                    <mat-form-field style="width: 400px" appearance="outline">
+                        <mat-label>PhoneNumber</mat-label>
+                        <input matInput placeholder="Enter your phoneNumber" name="phoneNumber"  [(ngModel)]="form.phoneNumber" #phoneNumber="ngModel" minlength="3" maxlength="50" required>
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <mat-error *ngIf="phoneNumber.hasError('required')">Your phoneNumber is required.</mat-error>
+                        <mat-error *ngIf="phoneNumber.hasError('minlength')">Your phoneNumber must more than 3 character.</mat-error>
+                    </mat-form-field><br>
+                    <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Register
+                        <mat-icon matSuffix>how_to_reg</mat-icon>
+                    </button>
+                </form>
+
+            </mat-card>
+        </div>
+    </div>
+</div>

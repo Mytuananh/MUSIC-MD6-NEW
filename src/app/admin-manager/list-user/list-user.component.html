@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="column" *ngFor="let user of users">
+        <div class="card">
+            <i style="font-size: 1.5vw; color: crimson">{{user.username}}</i>
+            <i style="font-size: 1.5vw; color: crimson">{{user.phoneNumber}}</i>
+            <img class="image-list-user" [src]="user.avatar">
+            <div *ngFor="let role of user.roles">
+                <i>{{role.name}}</i>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-paginator [pageSizeOptions]="[3,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>
+

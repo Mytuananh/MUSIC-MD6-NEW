@@ -1,0 +1,7 @@
+<div>
+    <input type="file" (change)="onFileChanged($event)">
+   <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>
+    <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+        <img [src]="downloadURL" style="width: 300px; height: auto">
+    </div>
+</div>
