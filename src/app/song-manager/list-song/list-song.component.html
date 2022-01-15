@@ -11,27 +11,17 @@
                     <th>Musician</th>
                     <th>Count</th>
                     <th>CountLike</th>
-                    <th>Avatar</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let song of songs">
                     <td>{{song.name}}</td>
                     <td>{{song.description}}</td>
-                    <td><audio controls><source [src]="song.file"></audio></td>
-                    <td *ngFor="let singer of song.singers">{{singer.name}}</td>
+                    <td>{{song.file}}</td>
+                    <td>{{song.singer}}</td>
                     <td>{{song.musician}}</td>
                     <td>{{song.count}}</td>
                     <td>{{song.countLike}}</td>
-                    <td><img class="imageListSong" [src]="song.avatar"></td>
-                    <td> <button mat-icon-button color="primary" [routerLink]="['/update-song/', song.id]">
-                        <mat-icon color="primary">edit</mat-icon>
-                    </button></td>
-                    <button (click)="openDialog(song.id)" mat-icon-button color="primary">
-                        <mat-icon color="primary">delete</mat-icon>
-                    </button>
                 </tr>
                 </tbody>
             </table>
