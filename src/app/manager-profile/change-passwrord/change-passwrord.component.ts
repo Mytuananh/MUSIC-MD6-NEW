@@ -11,8 +11,8 @@ export class ChangePasswrordComponent implements OnInit {
   hide = true;
   Form: any = {};
   changePassword: ChangePassword = {};
-  hide1= true;
-  hide2= true;
+  hide1 = true;
+  hide2 = true;
 
   constructor(private authService: AuthService,
   ) {
@@ -27,7 +27,7 @@ export class ChangePasswrordComponent implements OnInit {
       this.Form.newPassword,
       this.Form.re_newPassword
     );
-this.authService.changePassword(this.changePassword).subscribe(data => {
+    this.authService.changePassword(this.changePassword).subscribe(data => {
   Swal.fire({
     toast: true,
     position: 'top-end',
@@ -36,13 +36,13 @@ this.authService.changePassword(this.changePassword).subscribe(data => {
     showConfirmButton: false,
     timer: 2000
   });
-},error => {if (error.status === 400){ Swal.fire({
+}, error => {if (error.status === 400){ Swal.fire({
   toast: true,
   position: 'top-end',
   icon: 'error',
   title: 'ok',
   showConfirmButton: false,
   timer: 2000
-});}})
+}); }});
   }
 }

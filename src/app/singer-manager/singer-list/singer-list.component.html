@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="card w-100">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Countryside</th>
+                    <th>Avatar</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let singer of singers">
+                    <td>{{singer.name}}</td>
+                    <td>{{singer.age}}</td>
+                    <td>{{singer.countryside}}</td>
+                    <td><img class="imageListSong" [src]="singer.avatar" alt=""></td>
+                    <td> <button mat-icon-button color="primary" [routerLink]="['/update-singer/', singer.id]">
+                        <mat-icon color="primary">edit</mat-icon>
+                    </button></td>
+                    <button (click)="openDialog(singer.id)" mat-icon-button color="primary">
+                        <mat-icon color="primary">delete</mat-icon>
+                    </button>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<mat-paginator [pageSizeOptions]="[3,15,30,90]" [length]="totalElements" (page)="nextPage($event)"></mat-paginator>

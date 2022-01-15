@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import {PageEvent} from '@angular/material/paginator';
-import {Song} from '../../model/Song';
-import {SongService} from '../../service/song.service';
 import {MatDialog} from '@angular/material/dialog';
-import {DialogComponent} from '../dialog/dialog.component';
+import {PageEvent} from '@angular/material/paginator';
+import {DialogComponent} from '../../song-manager/dialog/dialog.component';
+import {Singer} from '../../model/Singer';
+import {SingerService} from '../../service/singer.service';
 
 @Component({
-  selector: 'app-list-song',
-  templateUrl: './list-song.component.html',
-  styleUrls: ['./list-song.component.scss']
+  selector: 'app-singer-list',
+  templateUrl: './singer-list.component.html',
+  styleUrls: ['./singer-list.component.scss']
 })
-export class ListSongComponent implements OnInit {
+export class SingerListComponent implements OnInit {
   totalElements: any = 0;
-  songs: Song[] = [];
+  singers: Singer[] = [];
   loading: boolean;
-  constructor(private songService: SongService,
+  constructor(private singerService: SingerService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -22,9 +22,10 @@ export class ListSongComponent implements OnInit {
   }
   private getListRequest(request) {
     this.loading = true;
-    this.songService.pageSong(request).subscribe(data => {
+    this.singerService.pageSinger(request).subscribe(data => {
       console.log('data --> ', data);
-      this.songs = data.content;
+      // @ts-ignore
+      this.singers = data.content;
       console.log('data[content] ---->', data.content);
       this.totalElements = data.totalElements;
       console.log('data[totalElements] == ', data.totalElements);
@@ -45,8 +46,8 @@ export class ListSongComponent implements OnInit {
     console.log('request[size]', request.size);
     this.getListRequest(request);
   }
-  deleteSong(id: number){
-    this.songService.deleteSongById(id).subscribe(() => {
+  deleteSinger(id: number){
+    this.singerService.deleteSingerById(id).subscribe(() => {
       this.getListRequest({page: 0, size: 3});
       window.location.reload();
     });
@@ -55,7 +56,7 @@ export class ListSongComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result){
-        this.deleteSong(id);
+        this.deleteSinger(id);
       }
       console.log(`Dialog result: ${result}`);
     });

@@ -1,13 +1,13 @@
 export class Song {
-   public id: number;
-   public name: string;
-   public description: string;
-   public file: string;
-   public singers: any;
-   public musician: string;
-   public avatar: string;
-   public count: number;
-   public countLike: number;
+  public id: number;
+  public name: string;
+  public description: string;
+  public file: string;
+  public singers: any;
+  public musician: string;
+  public avatar: string;
+  public count: number;
+  public countLike: number;
 
 
   // tslint:disable-next-line:max-line-length

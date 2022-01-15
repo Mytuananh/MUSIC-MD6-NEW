@@ -24,6 +24,7 @@ export class AuthService {
   // private API_SIGNIN = environment.API_SERVE+'signin';
   // private API_CHANGE_AVATAR = environment.API_SERVE+'change-avatar';
   constructor(private http: HttpClient) { }
+
   changePassword(changePassword: ChangePassword): Observable<any> {
     return this.http.put<any>(this.API_CHANGE_PASSWORD, changePassword);
   }

@@ -29,6 +29,9 @@ export class NavBarComponent  implements OnInit{
       this.name = this.tokenService.getName();
       this.avatar = this.tokenService.getAvatar();
     }
+    if (this.tokenService.getToken() && JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
+      this.checkAdmin = true;
+    }
   }
 
   Logout() {
@@ -38,16 +41,13 @@ export class NavBarComponent  implements OnInit{
     });
   }
   addSong() {
-    if (this.tokenService.getToken() && JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
-      this.checkAdmin = true;
       this.router.navigate(['create-song']).then(() => {
         window.location.reload();
       });
     }
-  }
-
 }
 
+// @ts-ignore
 @NgModule({
   imports: [
     CommonModule,
@@ -61,4 +61,6 @@ export class NavBarComponent  implements OnInit{
   declarations: [NavBarComponent],
   providers: [StyleManager, ThemeStorage]
 })
-export class NavBarModule {}
+export class NavBarModule {
+
+}

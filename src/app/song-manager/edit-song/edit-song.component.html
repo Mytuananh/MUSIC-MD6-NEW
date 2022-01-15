@@ -6,47 +6,47 @@
                 <mat-tab-group>
                     <mat-tab label="Chi tiết bài hát">
                         <div *ngIf="song">
-                        <h3>Old Song</h3>
-                        <b>Name: </b>
-                        <i style="color: #f92672">{{song.name}}</i><br>
-                        <b>Description: </b>
-                        <i style="color: #f92672">{{song.description}}</i><br>
-                        <b>File:</b>
-                        <audio controls><source [src]="song.file"></audio><br>
+                            <h3>Old Song</h3>
+                            <b>Name: </b>
+                            <i style="color: #f92672">{{song.name}}</i><br>
+                            <b>Description: </b>
+                            <i style="color: #f92672">{{song.description}}</i><br>
+                            <b>File:</b>
+                            <audio controls><source [src]="song.file"></audio><br>
                             <b>Singer:</b>
                             <div *ngFor="let singer of song.singers">
                                 <i>{{singer.name}}</i>
                             </div><br>
-                        <b>Musician:</b>
-                        <i style="color: #f92672">{{song.musician}}</i><br>
-                        <b>Count:</b>
-                        <i style="color: #f92672">{{song.count}}</i><br>
-                        <b>CountLike:</b>
-                        <i style="color: #f92672">{{song.countLike}}</i><br>
-                        <b>Avatar: </b>
-                        <img class="imageSong" [src]="song.avatar">
-                    </div></mat-tab>
+                            <b>Musician:</b>
+                            <i style="color: #f92672">{{song.musician}}</i><br>
+                            <b>Count:</b>
+                            <i style="color: #f92672">{{song.count}}</i><br>
+                            <b>CountLike:</b>
+                            <i style="color: #f92672">{{song.countLike}}</i><br>
+                            <b>Avatar: </b>
+                            <img class="imageSong" [src]="song.avatar">
+                        </div></mat-tab>
                     <mat-tab label="Chỉnh sửa bài hát">
                         <form class="edit-product" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
-                        <mat-error class="alert alert-primary">{{status}}</mat-error>
-                        <!--NAME-->
-                        <mat-form-field style="width: 400px" appearance="outline">
-                            <mat-label>Name:</mat-label>
-                            <input matInput name="name" [(ngModel)]="song.name" #name="ngModel">
-                            <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
-                        </mat-form-field><br>
-                        <!--DESCRIPTION-->
-                        <mat-form-field style="width: 400px" appearance="outline">
-                            <mat-label>Description:</mat-label>
-                            <input matInput name="description" [(ngModel)]="song.description" #description="ngModel">
-                            <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
-                        </mat-form-field><br>
-                        <!--MUSICIAN-->
-                        <mat-form-field style="width: 400px" appearance="outline">
-                            <mat-label>Musician:</mat-label>
-                            <input matInput name="musician" [(ngModel)]="song.musician" #musician="ngModel">
-                            <mat-icon matSuffix>description</mat-icon>
-                        </mat-form-field><br>
+                            <mat-error class="alert alert-primary">{{status}}</mat-error>
+                            <!--NAME-->
+                            <mat-form-field style="width: 400px" appearance="outline">
+                                <mat-label>Name:</mat-label>
+                                <input matInput name="name" [(ngModel)]="song.name" #name="ngModel">
+                                <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+                            </mat-form-field><br>
+                            <!--DESCRIPTION-->
+                            <mat-form-field style="width: 400px" appearance="outline">
+                                <mat-label>Description:</mat-label>
+                                <input matInput name="description" [(ngModel)]="song.description" #description="ngModel">
+                                <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
+                            </mat-form-field><br>
+                            <!--MUSICIAN-->
+                            <mat-form-field style="width: 400px" appearance="outline">
+                                <mat-label>Musician:</mat-label>
+                                <input matInput name="musician" [(ngModel)]="song.musician" #musician="ngModel">
+                                <mat-icon matSuffix>description</mat-icon>
+                            </mat-form-field><br>
                             <!--SINGER-->
                             <mat-form-field style="width: 350px" appearance="outline">
                                 <mat-label>Select Singers</mat-label>
@@ -55,14 +55,14 @@
                                 </mat-select>
                                 <mat-icon color="accent" matSuffix>format_list_numbered_rtl</mat-icon>
                             </mat-form-field><br>
-                        <!--MUSIC-->
-                        <app-upload-music (giveURLtoCreate)="onUploadMusic($event)"></app-upload-music><br>
-                        <!--AVATAR-->
-                        <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar><br>
-                        <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Edit Song
-                            <mat-icon matSuffix>production_quantity_limits</mat-icon>
-                        </button>
-                    </form>
+                            <!--MUSIC-->
+                            <app-upload-music (giveURLtoCreate)="onUploadMusic($event)"></app-upload-music><br>
+                            <!--AVATAR-->
+                            <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar><br>
+                            <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Edit Song
+                                <mat-icon matSuffix>production_quantity_limits</mat-icon>
+                            </button>
+                        </form>
                     </mat-tab>
                 </mat-tab-group>
                 <button (click)="Back()" mat-raised-button color="primary">Back</button>

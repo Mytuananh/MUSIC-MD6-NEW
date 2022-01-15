@@ -24,7 +24,7 @@ export class SongService {
     return this.http.get(this.API_SONG, {params});
   }
 
-  createProduct(song: Song): Observable<Song>{
+  createSinger(song: Song): Observable<Song>{
     return this.http.post<Song>(this.API_CREATE_SONG, song);
   }
   deleteSongById(id: number): Observable<Song>{

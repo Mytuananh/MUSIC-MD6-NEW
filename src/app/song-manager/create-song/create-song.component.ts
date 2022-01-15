@@ -42,16 +42,16 @@ export class CreateSongComponent implements OnInit {
   ngSubmit() {
     // @ts-ignore
     this.song = new Song(
-    this.Form.name,
-    this.Form.description,
-    this.Form.file,
-    this.Form.singers,
-    this.Form.musician,
-    this.Form.avatar,
-    this.Form.count,
-    this.Form.countLike
+      this.Form.name,
+      this.Form.description,
+      this.Form.file,
+      this.Form.singers,
+      this.Form.musician,
+      this.Form.avatar,
+      this.Form.count,
+      this.Form.countLike
     );
-    this.songService.createProduct(this.song).subscribe(data => {
+    this.songService.createSinger(this.song).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error1)) {
         this.status = 'The name song is existed. Please try again!';
       }
