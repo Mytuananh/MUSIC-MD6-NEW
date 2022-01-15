@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     message: 'no_user'
   };
   error2: any = {
-    message: 'no_email'
+    message: 'no_phoneNumber'
   };
   success: any = {
     message: 'yes'
@@ -32,27 +32,28 @@ export class RegisterComponent implements OnInit {
   ngSubmit() {
     this.signUpForm = new SignUpForm(
       this.form.username,
-      this.form.phoneNumber,
       this.form.password,
       this.form.re_password,
+      this.form.phoneNumber
     );
     this.authService.signUp(this.signUpForm).subscribe(data => {
       // tslint:disable-next-line:triple-equals
       if (JSON.stringify(data) == JSON.stringify(this.error1)) {
-        this.status = 'The username is existed.Please try!';
+        window.location.reload();
+        this.status = 'The username is existed! Please try again!';
       }
       // tslint:disable-next-line:triple-equals
-      if (JSON.stringify(data) == JSON.stringify(this.error2)) {
-        this.status = 'The email is existed.Please try!';
+      if (JSON.stringify(data) == JSON.stringify(this.error2)){
+        window.location.reload();
+        this.status = 'The PhoneNumber is existed! Please try again!';
       }
       // tslint:disable-next-line:triple-equals
-      if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        this.status = 'Create account success!';
-        this.authService.setData(true);
-        this.router.navigate(['login']);
+      if (JSON.stringify(data) == JSON.stringify(this.success)){
+        this.status = 'Create account success !';
+        this.router.navigate(['login']).then(() => {
+          window.location.reload();
+        });
       }
-    } );
+    });
   }
 }
-
-

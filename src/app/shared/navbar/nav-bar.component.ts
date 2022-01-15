@@ -15,9 +15,11 @@ import {TokenService} from '../../service/token.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent  implements OnInit{
+  roles2: any = ['ADMIN'];
   avatar: string;
   name: string;
   checkLogin = false;
+  checkAdmin = false;
   constructor(private tokenService: TokenService,
               private router: Router) {
   }
@@ -27,15 +29,25 @@ export class NavBarComponent  implements OnInit{
       this.name = this.tokenService.getName();
       this.avatar = this.tokenService.getAvatar();
     }
+    if (this.tokenService.getToken() && JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
+      this.checkAdmin = true;
+    }
   }
+
   Logout() {
     this.tokenService.Logout();
     this.router.navigate(['login']).then(() => {
       window.location.reload();
     });
   }
+  addSong() {
+      this.router.navigate(['create-song']).then(() => {
+        window.location.reload();
+      });
+    }
 }
 
+// @ts-ignore
 @NgModule({
   imports: [
     CommonModule,
@@ -49,4 +61,6 @@ export class NavBarComponent  implements OnInit{
   declarations: [NavBarComponent],
   providers: [StyleManager, ThemeStorage]
 })
-export class NavBarModule {}
+export class NavBarModule {
+
+}

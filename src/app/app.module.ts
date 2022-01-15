@@ -39,6 +39,18 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import { ListSongComponent } from './song-manager/list-song/list-song.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { DialogComponent } from './song-manager/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditSongComponent } from './song-manager/edit-song/edit-song.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { UploadMusicComponent } from './upload/upload-music/upload-music.component';
+import {MatSelectModule} from '@angular/material/select';
+import { CreateSongComponent } from './song-manager/create-song/create-song.component';
+import { EditSingerComponent } from './singer-manager/edit-singer/edit-singer.component';
+import { CreateSingerComponent } from './singer-manager/create-singer/create-singer.component';
+import { SingerListComponent } from './singer-manager/singer-list/singer-list.component';
+
+
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
@@ -47,6 +59,9 @@ export const appRoutes: Routes = [
   {path: 'admin-account', component: AdminAccountComponent},
   {path: 'upload-avatar', component: UploadAvatarComponent},
   {path: 'change-avatar', component: ChangeAvatarComponent},
+  {path: 'update-song/:id', component: EditSongComponent},
+  {path: 'create-song', component: CreateSongComponent},
+  {path: 'update-singer/:id', component: EditSingerComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -56,7 +71,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -73,7 +88,7 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
