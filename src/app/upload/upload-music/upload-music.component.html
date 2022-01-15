@@ -1,0 +1,7 @@
+<div>
+    <input type="file" (change)="onFileChangedMusic($event)">
+    <mat-spinner *ngIf="checkUploadMusic"></mat-spinner>
+    <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+        <audio controls><source [src]="downloadURL"></audio>
+    </div>
+</div>
