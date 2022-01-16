@@ -1,5 +1,4 @@
 <nav class="docs-navbar-header" aria-label="Top Toolbar">
-    <script src="../assets/js/plugins/player/volume.js"></script>
     <div *ngIf="!checkLogin" class="ms_loader">
         <div class="wrap">
             <img src="assets/images/loader.gif" alt="">
@@ -15,7 +14,8 @@
         <div class="ms_sidemenu_inner">
             <div class="ms_logo_inner">
                 <div class="ms_logo">
-                    <a href="index.html"><img src="assets/images/logo.png" alt="" class="img-fluid"/></a>
+                    <a *ngIf="checkAdmin" routerLink="admin-account"><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
+                    <a><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
                 </div>
                 <div class="ms_logo_open">
                     <a href="index.html"><img src="assets/images/open_logo.png" alt="" class="img-fluid"/></a>
@@ -161,21 +161,25 @@
 						</span>
                 </div>
 
-        <div class="ms_top_trend">
-            <a   routerLink="create-song" class="ms_btn login_btn"><span>Add Song</span></a>
+                <div class="ms_top_trend">
+                    <a *ngIf="checkAdmin"  routerLink="create-song" class="ms_btn login_btn"><span>Add Song</span></a>
+                    <a *ngIf="checkAdmin"  routerLink="create-singer" class="ms_btn login_btn"><span>Add Singer</span></a>
+                </div>
+                <div class="ms_top_trend">
+
+                </div>
+            </div>
+            <div class="ms_top_right">
+                <div class="ms_top_lang">
+                    <a *ngIf="checkLogin" (click)="Logout()" class="ms_btn login_btn"><span>Log Out</span></a>
+                </div>
+                <div class="ms_top_btn">
+                    <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn"><span>register</span></a>
+                    <a *ngIf="!checkLogin" routerLink="login" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
+                    <a *ngIf="checkLogin"  mat-button class="docs-button"> <img routerLink="change-avatar" class="avatar" [src]="avatar" alt=""></a>
+                    <a *ngIf="checkLogin" routerLink="change-manage" mat-button><span>{{name}}</span></a>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="ms_top_right">
-        <div class="ms_top_lang">
-          <a *ngIf="checkLogin" (click)="Logout()" class="ms_btn login_btn"><span>Log Out</span></a>
-        </div>
-        <div class="ms_top_btn">
-          <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn"><span>register</span></a>
-          <a *ngIf="!checkLogin" routerLink="login" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
-          <a *ngIf="checkLogin"  mat-button class="docs-button"> <img routerLink="change-avatar" class="avatar" [src]="avatar" alt=""></a>
-          <a *ngIf="checkLogin" routerLink="change-manage" mat-button><span>{{name}}</span></a>
-        </div>
-      </div>
-    </div>
     </div>
 </nav>

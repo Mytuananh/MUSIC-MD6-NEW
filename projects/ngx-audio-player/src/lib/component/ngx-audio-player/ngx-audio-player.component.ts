@@ -15,7 +15,7 @@ import { Subject } from 'rxjs';
 export class AudioPlayerComponent implements OnInit, OnChanges {
 
     audioPlayerService: AudioPlayerService;
-    repeat: string = 'all';
+    repeat = 'all';
     constructor(elem: ElementRef) {
         if (elem.nativeElement.tagName.toLowerCase() === 'mat-advanced-audio-player') {
             console.warn(`'mat-advanced-audio-player' selector is deprecated; use 'ngx-audio-player' instead.`);
@@ -290,7 +290,7 @@ export class AudioPlayerComponent implements OnInit, OnChanges {
                 && (((this.currentIndex) % this.paginator.pageSize) === 0
                     || (this.currentIndex === 0))) {
                 if (this.paginator.hasPreviousPage()) {
-                    this.paginator.previousPage();       
+                    this.paginator.previousPage();
                 } else if (!this.paginator.hasPreviousPage()) {
                     this.paginator.lastPage();
                 }
