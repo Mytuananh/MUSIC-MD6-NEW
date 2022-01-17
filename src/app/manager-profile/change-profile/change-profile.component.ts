@@ -17,8 +17,9 @@ export class ChangeProfileComponent implements OnInit {
 Form: any = {};
 changeProfile: ChangeProfile;
 status = 'Please fill in the form change you Profile!';
-  error1: any = {message: 'no_email'};
-  error2: any = {message: 'yes'};
+  error1: any = {message: 'nofullname'};
+  error2: any = {message: 'noemail'};
+  error3: any = {message: 'nophonenumber'};
   success: any = {massage: 'yes'};
   avatar: string;
   constructor(private authService: AuthService,
@@ -31,10 +32,25 @@ status = 'Please fill in the form change you Profile!';
   }
 
   ngSubmit() {
-   this.changeProfile = new ChangeProfile(this.Form.fullName,
+   this.changeProfile = new ChangeProfile(
+     this.Form.fullName,
      this.Form.address,
      this.Form.email,
      this.Form.phoneNumber
    );
+   this.authService.changeProfile(this.changeProfile).subscribe(data =>{
+     if (JSON.stringify(data)==JSON.stringify(this.error1)){
+       this.status = 'The Full Name is existed .Please try again!'
+     }
+     if (JSON.stringify(data)==JSON.stringify(this.error2)){
+       this.status = 'The email is existed .Please try again!'
+     }
+     if (JSON.stringify(data)==JSON.stringify(this.error3)){
+       this.status = 'The Phone Number is existed .Please try again!'
+     }
+     if (JSON.stringify(data)==JSON.stringify(this.success)){
+       this.status = 'Change success!';
+     }
+   });
   }
 }
