@@ -3,11 +3,19 @@ export class Song {
   public name: string;
   public description: string;
   public file: string;
-  public singers: any;
+  public singers?: any;
   public musician: string;
   public avatar: string;
   public count: number;
   public countLike: number;
+  startOffset?: number;
+  endOffset?: number;
+  duration?: number;
+  index?: number;
+
+  public toString = (): string => {
+    return `Song (index: ${this.index}, name: ${this.name})`;
+  }
 
 
   // tslint:disable-next-line:max-line-length

@@ -16,7 +16,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { GettingStartedComponent } from './pages/gettingstarted/gettingstarted.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NgxAudioPlayerModule } from 'projects/ngx-audio-player/src/public_api';
 import { MatButtonModule } from '@angular/material/button';
 
 import {NavBarModule} from './shared/navbar';
@@ -54,6 +53,10 @@ import { CreateSongComponent } from './song-manager/create-song/create-song.comp
 import { EditSingerComponent } from './singer-manager/edit-singer/edit-singer.component';
 import { CreateSingerComponent } from './singer-manager/create-singer/create-singer.component';
 import { SingerListComponent } from './singer-manager/singer-list/singer-list.component';
+import { AudioPlayerComponent } from './song-manager/audio-player/audio-player.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 
 
@@ -72,6 +75,7 @@ export const appRoutes: Routes = [
   {path: 'update-song/:id', component: EditSongComponent},
   {path: 'create-song', component: CreateSongComponent},
   {path: 'update-singer/:id', component: EditSingerComponent},
+  {path: 'create-singer', component: CreateSingerComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -81,7 +85,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -94,11 +98,10 @@ export const appRoutes: Routes = [
     MatButtonModule,
     BrowserAnimationsModule,
     NavBarModule, FooterModule,
-    NgxAudioPlayerModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule, MatGridListModule
   ],
   providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]

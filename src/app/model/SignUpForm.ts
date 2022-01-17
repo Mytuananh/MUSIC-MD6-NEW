@@ -13,6 +13,6 @@ export class SignUpForm {
     this.password = password;
     this.re_password = re_password;
     this.phoneNumber = phoneNumber;
-    this.roles = ['admin'];
+    this.roles = ['user'];
   }
 }

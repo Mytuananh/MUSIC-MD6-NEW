@@ -26,7 +26,7 @@ export class MockElementRef {
 
 @Injectable()
 export class MockService extends AudioPlayerService {
-  playlist = mockPlaylist;
+ playlist = mockPlaylist;
 }
 
 describe('AudioPlayerComponent', () => {

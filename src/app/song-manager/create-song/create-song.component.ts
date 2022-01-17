@@ -51,7 +51,7 @@ export class CreateSongComponent implements OnInit {
       this.Form.count,
       this.Form.countLike
     );
-    this.songService.createSinger(this.song).subscribe(data => {
+    this.songService.createSong(this.song).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error1)) {
         this.status = 'The name song is existed. Please try again!';
       }
