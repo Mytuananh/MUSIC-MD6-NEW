@@ -5,7 +5,8 @@
                 <div class="ms_profile_wrapper">
                     <h1>Edit Profile</h1>
                     <form class="change-password" #f="ngForm" (ngSubmit)="f.form.valid &&ngSubmit()" novalidate>
-                    <div class="ms_profile_box">
+                        <mat-error class="alert alert-primary">{{status}}</mat-error>
+                        <div class="ms_profile_box">
                         <div class="ms_pro_img">
                             <img [src]="avatar" alt="" class="img-fluid">
                             <div class="pro_img_overlay">
@@ -14,9 +15,9 @@
                         </div>
                         <div class="ms_pro_form">
                             <div class="form-group">
-                                <label>Your Name *</label>
-                                <input type="text" placeholder="Bella Scott" class="form-control" name="username" [(ngModel)]="Form.username" #username = "ngModel" required>
-                                <mat-error *ngIf="username.hasError('required')">Your email is required.</mat-error>
+                                <label>Your Full Name *</label>
+                                <input type="text" placeholder="Bella Scott" class="form-control" name="fullName" [(ngModel)]="Form.fullName" #fullName = "ngModel" required>
+                                <mat-error *ngIf="fullName.hasError('required')">Your email is required.</mat-error>
 
                             </div>
                             <div class="form-group">
@@ -27,15 +28,15 @@
 
                             </div>
                             <div class="form-group">
-                                <label>Your Password *</label>
-                                <input type="password" placeholder="******" class="form-control" name="password" [(ngModel)]="Form.password" #password = "ngModel" required="">
-                                <mat-error *ngIf="password.hasError('required')">Your email is required.</mat-error>
+                                <label>Your Address *</label>
+                                <input type="text" placeholder="******" class="form-control" name="address" [(ngModel)]="Form.address" #address = "ngModel" required="">
+                                <mat-error *ngIf="address.hasError('required')">Your address is required.</mat-error>
 
                             </div>
                             <div class="form-group">
-                                <label>Confirm Password *</label>
-                                <input type="password" placeholder="******" class="form-control" name="re_password" [(ngModel)]="Form.username" #re_password = "ngModel" required="" >
-                                <mat-error *ngIf="re_password.hasError('required')">Your email is required.</mat-error>
+                                <label>You phone Number *</label>
+                                <input type="text" placeholder="phone number" class="form-control" name="phoneNumber" [(ngModel)]="Form.phoneNumber" #phoneNumber = "ngModel" required="" >
+                                <mat-error *ngIf="phoneNumber.hasError('required')">Your phone number is required.</mat-error>
 
                             </div>
                             <div class="pro-form-btn text-center marger_top15">
