@@ -8,6 +8,10 @@
   margin: 0 auto;
 }
 
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+  padding-right: 803px;
+}
+
 #range::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 20px;
@@ -27,8 +31,8 @@
 #control{
   position: fixed;
   width: 100%;
-  height: 20%;
-  top:85%;
+  height: 15%;
+  top:100%;
   left: 0;
 }
 
