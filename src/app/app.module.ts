@@ -63,6 +63,7 @@ import { MusicSuggestComponent } from './song-manager/music-suggest/music-sugges
 import { MusicCountComponent } from './song-manager/music-count/music-count.component';
 import { SongDetailComponent } from './song-manager/song-detail/song-detail.component';
 import { UserAccountComponent } from './form-login/user-account/user-account.component';
+import { CommentDialogComponent } from './song-manager/comment-dialog/comment-dialog.component';
 
 
 
@@ -96,7 +97,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent, CommentDialogComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

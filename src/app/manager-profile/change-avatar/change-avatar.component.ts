@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./change-avatar.component.scss']
 })
 export class ChangeAvatarComponent implements OnInit {
+  roles2: any = ['ADMIN'];
+  roles1: any = ['USER'];
   status = 'Please Choose File';
   changeAvatar: ChangeAvatar;
   Form: any = {};
@@ -35,11 +37,17 @@ export class ChangeAvatarComponent implements OnInit {
     this.authService.changeAvatar(this.changeAvatar).subscribe(data => {
       console.log(data);
       if (JSON.stringify(data) === JSON.stringify(this.success)) {
-        this.status  = 'Upload Avatar Success!';
+        this.status = 'Upload Avatar Success!';
         this.tokenService.setAvatar(this.Form.avatar);
-        this.router.navigate(['admin-account']).then(() => {
-          window.location.reload();
-        });
+        if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)) {
+          this.router.navigate(['admin-account']).then(() => {
+            window.location.reload();
+          });
+        } else if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles1)) {
+          this.router.navigate(['']).then(() => {
+            window.location.reload();
+          });
+        }
       }
     });
   }

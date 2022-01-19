@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment.prod';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Song} from '../model/Song';
+import {Comments} from '../model/Comments';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,7 @@ export class SongService {
   API_SONG_COUNT_MAX = environment.API_LOCAL + 'song-count';
   API_FIND_SONG = environment.API_LOCAL + 'find-song';
   API_SONG_LIKE = environment.API_LOCAL + 'like';
+  API_SONG_COMMENT = environment.API_LOCAL + 'comment';
 
   checkLogin$ = new BehaviorSubject<string>('');
   checkCurrent$ = new BehaviorSubject<string>('');
@@ -76,5 +78,13 @@ export class SongService {
 
   unLike(id: any): Observable<any> {
     return this.http.delete<any>(this.API_SONG_LIKE + '/' + id);
+  }
+
+  commentSong(comment: Comments): Observable<any> {
+    return this.http.post(this.API_SONG_COMMENT, comment);
+  }
+
+  findAllComment(id: any) {
+    return this.http.get(this.API_SONG_COMMENT + '/' + id)
   }
 }
