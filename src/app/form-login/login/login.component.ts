@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         this.tokenService.setName(data.username);
         this.tokenService.setRole(data.roles);
         this.tokenService.setAvatar(data.avatar);
+        this.tokenService.setID(data.id);
         if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
         this.router.navigate(['admin-account']).then(() => {
           window.location.reload();

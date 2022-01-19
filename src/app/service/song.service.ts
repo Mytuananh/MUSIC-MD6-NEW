@@ -17,6 +17,9 @@ export class SongService {
   API_SONG_MU = environment.API_LOCAL + 'song-list';
   API_SONG_LATER = environment.API_LOCAL + 'latest';
   API_SONG_COUNT = environment.API_LOCAL + 'updateCount';
+  API_SONG_COUNT_MAX = environment.API_LOCAL + 'song-count';
+  API_FIND_SONG = environment.API_LOCAL + 'find-song';
+  API_SONG_LIKE = environment.API_LOCAL + 'like';
 
   checkLogin$ = new BehaviorSubject<string>('');
   checkCurrent$ = new BehaviorSubject<string>('');
@@ -32,11 +35,19 @@ export class SongService {
     return this.http.get(this.API_SONG, {params});
   }
 
+  songList(): Observable<any> {
+    return this.http.get<any>(this.API_SONG);
+  }
+
   createSong(song: Song): Observable<Song>{
     return this.http.post<Song>(this.API_CREATE_SONG, song);
   }
   deleteSongById(id: number): Observable<Song>{
     return this.http.delete<Song>(this.API_DELETE_SONG + '/' + id);
+  }
+
+  findSong(idSong: number): Observable<any>{
+    return this.http.get<any>(this.API_FIND_SONG + '/' + idSong);
   }
 
   updateSong(id: number, song: Song): Observable<Song>{
@@ -53,5 +64,17 @@ export class SongService {
 
   updateCount(id: any): Observable<any> {
     return this.http.put<any>(this.API_SONG_COUNT, id);
+  }
+
+  getSongByCount(): Observable<any> {
+    return this.http.get<any>(this.API_SONG_COUNT_MAX);
+  }
+
+  likeThis(like: any): Observable<any> {
+    return this.http.post(this.API_SONG_LIKE, like);
+  }
+
+  unLike(id: any): Observable<any> {
+    return this.http.delete<any>(this.API_SONG_LIKE + '/' + id);
   }
 }

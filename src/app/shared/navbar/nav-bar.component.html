@@ -15,10 +15,10 @@
             <div class="ms_logo_inner">
                 <div class="ms_logo">
                     <a *ngIf="checkAdmin" routerLink="admin-account"><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
-                    <a><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
+                    <a *ngIf="!checkAdmin"><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
                 </div>
                 <div class="ms_logo_open">
-                    <a href="index.html"><img src="assets/images/open_logo.png" alt="" class="img-fluid"/></a>
+                    <a href="index.html"><img src="assets/images/-Sieu-pham-3D-ve-Chu-Meo-Di-Hia-0.jpg" alt="" class="logo-meo"/></a>
                 </div>
             </div>
             <div class="ms_nav_wrapper" *ngIf="!checkAdmin">

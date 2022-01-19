@@ -3,7 +3,8 @@ const TOKEN_KEY = 'Token_Key';
 const NAME_KEY = 'Name_Key';
 const ROLE_KEY = 'Role_key';
 const AVATAR_KEY = 'Avatar_key';
-const FULL_NAME_KEY = 'FullName_key'
+const FULL_NAME_KEY = 'FullName_key';
+const ID_KEY = 'Id_Key';
 @Injectable({
   providedIn: 'root'
 })
@@ -64,4 +65,16 @@ export class TokenService {
     window.sessionStorage.clear();
     window.location.reload();
   }
+
+  public setID(id: number){
+    window.sessionStorage.removeItem(ID_KEY);
+    // @ts-ignore
+    window.sessionStorage.setItem(ID_KEY, id);
+  }
+
+  public getId(): number{
+    // @ts-ignore
+    return window.sessionStorage.getItem(ID_KEY);
+  }
+
 }

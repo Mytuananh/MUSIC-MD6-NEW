@@ -9,10 +9,8 @@ import {SongService} from '../../service/song.service';
   styleUrls: ['./music-suggest.component.scss']
 })
 export class MusicSuggestComponent implements OnInit {
-  @ViewChild('player', { static: false })
-  advancedPlayer: AudioPlayerComponent;
-  songs: Song[] = [];
-  currentIndex: any;
+  songs: any;
+  currentIndex = 0;
   constructor(private songService: SongService) {
   }
 
@@ -32,29 +30,4 @@ export class MusicSuggestComponent implements OnInit {
     this.songService.updateCount(this.songs[currentIndex].id).subscribe(()=>{});
     this.loadCount();
   }
-
-  currentSong: Song = null;
-  currentTime: any;
-
-  appendSongToPlaylistDisable = false;
-  counter = 1;
-
-  onEnded(event) {
-    console.log(event);
-    // your logic which needs to
-    // be triggered once the
-    // track ends goes here.
-
-    // example
-    this.currentSong = null;
-  }
-
-  consoleLogCurrentData() {
-    // logCurrentTrack();
-    // logCurrentTime();
-    // Make sure to subscribe (by calling above methods)
-    // before getting the data
-    console.log(this.currentSong.name + ' : ' + this.currentTime);
-  }
-
 }
