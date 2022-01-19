@@ -878,6 +878,7 @@ ul.ms_lang_box:after {
 /*====Recent Music Slider====*/
 .ms_rcnt_slider {
 	position: relative;
+	margin-top: 77px;
 }
 .ms_heading {
 	width: 100%;
@@ -1214,7 +1215,7 @@ ul.more_option li a:hover .opt_icon .icon_share {
 }
 /*====Weekly Top 15 Music =====*/
 .ms_weekly_wrapper {
-	padding-top: 50px;
+	padding-top: 0px;
 }
 .ms_weekly_wrapper .ms_heading {
 	margin-bottom: 10px;
@@ -5741,7 +5742,7 @@ h2.widget-title:after {
 		padding: 0px 0px 20px 0px;
 	}
 	.ms_footer_wrapper {
-		margin-bottom: 70px;
+		margin-bottom: 10px;
 	}
 	.ms_footer_logo {
 		padding-left: 0;
