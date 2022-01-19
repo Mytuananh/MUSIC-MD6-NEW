@@ -1,0 +1,27 @@
+<h2 mat-dialog-title> {{data.name}}</h2>
+<mat-dialog-content>
+
+    <form [formGroup]="formdata" (ngSubmit)="onSubmit()" *ngIf="idUser">
+        <div >
+            <mat-form-field style="width: 350px" appearance="outline">
+                <mat-label>Comment:</mat-label>
+                <input formControlName="text" matInput placeholder="Viết bình luận..." required>
+                <mat-error>The comment is required!</mat-error>
+                <button matSuffix type="submit" [disabled]="!formdata.valid"><mat-icon>send</mat-icon></button>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="row" *ngFor="let comment of commentList">
+        <div class="col-">
+            <img width="35px" height="auto" [src]="comment.user.avatar">
+        </div>
+        <div class="col-2">
+            <p>{{comment.user.username}}</p>
+        </div>
+        <div class="col-3">
+            <p>{{comment.text}}</p>
+        </div>
+    </div>
+</mat-dialog-content>
+
+

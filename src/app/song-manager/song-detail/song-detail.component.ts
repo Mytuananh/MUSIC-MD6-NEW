@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {SongService} from '../../service/song.service';
 import {TokenService} from '../../service/token.service';
 import {DialogComponent} from '../dialog/dialog.component';
+import {CommentDialogComponent} from '../comment-dialog/comment-dialog.component';
 
 @Component({
   selector: 'app-song-detail',
@@ -74,7 +75,7 @@ export class SongDetailComponent implements OnInit, OnDestroy {
   }
 
   openDialog() {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(CommentDialogComponent, {
       data: this.song
     });
   }
