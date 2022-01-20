@@ -18,7 +18,6 @@ import { GettingStartedComponent } from './pages/gettingstarted/gettingstarted.c
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 
-import {NavBarModule} from './shared/navbar';
 import {FooterModule} from './shared/footer';
 import { RegisterComponent } from './form-login/register/register.component';
 import { LoginComponent } from './form-login/login/login.component';
@@ -64,6 +63,10 @@ import { MusicCountComponent } from './song-manager/music-count/music-count.comp
 import { SongDetailComponent } from './song-manager/song-detail/song-detail.component';
 import { UserAccountComponent } from './form-login/user-account/user-account.component';
 import { CommentDialogComponent } from './song-manager/comment-dialog/comment-dialog.component';
+import { SongSearchComponent } from './song-manager/song-search/song-search.component';
+import {NavBarComponent} from './shared/navbar';
+
+
 
 
 
@@ -88,6 +91,7 @@ export const appRoutes: Routes = [
   {path: 'song-new', component: MusicNewComponent},
   {path: 'song-suggest', component: MusicSuggestComponent},
   {path: 'song-count', component: MusicCountComponent},
+  {path: 'song-search/:searchKey', component: SongSearchComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -97,7 +101,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent, CommentDialogComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent, CommentDialogComponent, SongSearchComponent, NavBarComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -109,13 +113,16 @@ export const appRoutes: Routes = [
     MatSlideToggleModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    NavBarModule, FooterModule,
+    FooterModule,
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // tslint:disable-next-line:max-line-length
     RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule, MatGridListModule, MatSliderModule, MatExpansionModule
   ],
   providers: [httpInterceptorProvider],
+  exports: [
+    SongSearchComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

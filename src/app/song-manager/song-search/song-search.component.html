@@ -1,0 +1,14 @@
+<div class="container" *ngIf="songs">
+    <div class="row">
+        <div class="col-12" style="margin-top: 50px">
+            <mat-card style="text-align: center;color: #2c0101">
+                <button mat-button style="font-size: 22px">Bài Hát Mới Nhất</button>
+            </mat-card>
+            <div *ngFor="let song of songs,index as i" [ngClass]="{'play':currentIndex==i}">
+                <app-song-detail [song]="song" ></app-song-detail>
+            </div>
+            <app-audio-player [songs]="songs" (eventEmitter)="playCurrentIndex($event)"></app-audio-player>
+            <div style="height: 20%;width: 100%"></div>
+        </div>
+    </div>
+</div>

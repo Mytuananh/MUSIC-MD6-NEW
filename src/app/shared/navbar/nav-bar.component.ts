@@ -1,13 +1,8 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MatButtonModule} from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {Router, RouterModule} from '@angular/router';
-import {ThemePickerModule} from '../theme-picker';
-import {ThemeStorage} from '../theme-picker/theme-storage/theme-storage';
-import {StyleManager} from '../style-manager';
-import {HttpClientModule} from '@angular/common/http';
+import {Router} from '@angular/router';
+
 import {TokenService} from '../../service/token.service';
+import {Song} from '../../model/Song';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +10,8 @@ import {TokenService} from '../../service/token.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent  implements OnInit{
+  searchKey: string;
+  songs: Song[] = [];
   roles2: any = ['ADMIN'];
   avatar: string;
   name: string;
@@ -41,26 +38,22 @@ export class NavBarComponent  implements OnInit{
     });
   }
   addSong() {
-      this.router.navigate(['create-song']).then(() => {
-        window.location.reload();
-      });
+    this.router.navigate(['create-song']).then(() => {
+      window.location.reload();
+    });
+  }
+
+
+  ngSubmit(f: any) {
+    console.log(f.value);
+    this.searchKey = f.value.searchKey;
+    if(this.searchKey == ""){
+      this.router.navigate([``])
     }
+    else {
+      this.router.navigate(['/song-search/', this.searchKey])
+    }
+  }
 }
 
-// @ts-ignore
-@NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatMenuModule,
-    RouterModule,
-    ThemePickerModule,
-  ],
-  exports: [NavBarComponent],
-  declarations: [NavBarComponent],
-  providers: [StyleManager, ThemeStorage]
-})
-export class NavBarModule {
 
-}

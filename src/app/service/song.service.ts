@@ -22,6 +22,7 @@ export class SongService {
   API_FIND_SONG = environment.API_LOCAL + 'find-song';
   API_SONG_LIKE = environment.API_LOCAL + 'like';
   API_SONG_COMMENT = environment.API_LOCAL + 'comment';
+  API_SONG_SEARCH = environment.API_LOCAL + 'search';
 
   checkLogin$ = new BehaviorSubject<string>('');
   checkCurrent$ = new BehaviorSubject<string>('');
@@ -86,5 +87,9 @@ export class SongService {
 
   findAllComment(id: any) {
     return this.http.get(this.API_SONG_COMMENT + '/' + id)
+  }
+
+  searchSongByNameOrSinger(nameSearch: string): Observable<any> {
+    return this.http.get<any>(this.API_SONG_SEARCH + '/' + nameSearch);
   }
 }
