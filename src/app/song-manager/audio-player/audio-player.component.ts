@@ -1,14 +1,15 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Observable} from 'rxjs';
 import {SongService} from '../../service/song.service';
-import * as moment from "moment";
+// @ts-ignore
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-audio-player',
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.scss']
 })
-export class AudioPlayerComponent implements OnInit,AfterViewInit {
+export class AudioPlayerComponent implements OnInit, AfterViewInit {
   @Input() songs: any;
   @Output() eventEmitter = new EventEmitter();
 
@@ -19,7 +20,7 @@ export class AudioPlayerComponent implements OnInit,AfterViewInit {
     this.songService.checkCurrent$.subscribe(data => {
       this.currentIndex = Number(data);
       this.play();
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -27,21 +28,20 @@ export class AudioPlayerComponent implements OnInit,AfterViewInit {
     this.currentTime = 0;
     this.totalTime = 0;
     this.checkplay = true;
-    this.currentTime = moment.utc(0).format("mm:ss");
-    this.totalTime = moment.utc(0).format("mm:ss");
+    this.currentTime = moment.utc(0).format('mm:ss');
+    this.totalTime = moment.utc(0).format('mm:ss');
   }
-
   audio = new Audio();
   audioEvents = [
-    "ended",
-    "error",
-    "play",
-    "playing",
-    "pause",
-    "timeupdate",
-    "canplay",
-    "loadedmetadata",
-    "loadstart"
+    'ended',
+    'error',
+    'play',
+    'playing',
+    'pause',
+    'timeupdate',
+    'canplay',
+    'loadedmetadata',
+    'loadstart'
   ];
   currentIndex = 0;
   currentTime: any;

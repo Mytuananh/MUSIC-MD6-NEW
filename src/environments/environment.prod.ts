@@ -5,12 +5,12 @@ export const environment = {
   API_SERVE: 'https://banhang2022.herokuapp.com/',
   production: true,
   firebaseConfig : {
-    apiKey: "AIzaSyAqaRLs8I1-ZNeLMbkIRTJ1t_EMdsgMGTg",
-    authDomain: "musicque-c225c.firebaseapp.com",
-    projectId: "musicque-c225c",
-    storageBucket: "musicque-c225c.appspot.com",
-    messagingSenderId: "143738604946",
-    appId: "1:143738604946:web:b6c48c8be589fb5226054b",
-    measurementId: "G-LD1BXP20F2"
+    apiKey: "AIzaSyBdcVNw9tQHKsZ8NuHWdNgRWKLET1EH3IA",
+    authDomain: "imagecontainer-5edc2.firebaseapp.com",
+    projectId: "imagecontainer-5edc2",
+    storageBucket: "imagecontainer-5edc2.appspot.com",
+    messagingSenderId: "448191549724",
+    appId: "1:448191549724:web:f386bb40565d6d8ba92ad9",
+    measurementId: "G-C3XEWV6JGV"
   }
 };
