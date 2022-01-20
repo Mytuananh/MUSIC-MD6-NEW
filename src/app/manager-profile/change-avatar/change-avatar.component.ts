@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class ChangeAvatarComponent implements OnInit {
   roles2: any = ['ADMIN'];
   roles1: any = ['USER'];
-  status = 'Please Choose File';
+  status = 'Tìm ảnh';
   changeAvatar: ChangeAvatar;
   Form: any = {};
   success: any = {
@@ -37,7 +37,7 @@ export class ChangeAvatarComponent implements OnInit {
     this.authService.changeAvatar(this.changeAvatar).subscribe(data => {
       console.log(data);
       if (JSON.stringify(data) === JSON.stringify(this.success)) {
-        this.status = 'Upload Avatar Success!';
+        this.status = 'Thay ảnh đại diện thành công!';
         this.tokenService.setAvatar(this.Form.avatar);
         if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)) {
           this.router.navigate(['admin-account']).then(() => {

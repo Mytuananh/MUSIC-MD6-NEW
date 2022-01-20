@@ -6,35 +6,35 @@
                     <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <!--NAME-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Name:</mat-label>
+                        <mat-label>Tên bài hát:</mat-label>
                         <input matInput name="name" [(ngModel)]="Form.name" #name="ngModel">
                         <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                     </mat-form-field><br>
                     <!--DESCRIPTION-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Description:</mat-label>
+                        <mat-label>Mô tả:</mat-label>
                         <input matInput name="description" [(ngModel)]="Form.description" #description="ngModel">
                         <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                     </mat-form-field><br>
                     <!--MUSICIAN-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Musician:</mat-label>
+                        <mat-label>Nhạc sĩ:</mat-label>
                         <input matInput name="musician" [(ngModel)]="Form.musician" #musician="ngModel">
                         <mat-icon matSuffix>description</mat-icon>
                     </mat-form-field><br>
                     <!--SINGER-->
                     <mat-form-field style="width: 350px" appearance="outline">
-                        <mat-label>Select Singers</mat-label>
+                        <mat-label>Chọn ca sĩ</mat-label>
                         <mat-select name="singerList" multiple [(ngModel)]="Form.singers">
                             <mat-option *ngFor="let singer of singerList" [value]="singer">{{singer.name}}</mat-option>
                         </mat-select>
                         <mat-icon color="accent" matSuffix>format_list_numbered_rtl</mat-icon>
                     </mat-form-field><br>
                     <!--MUSIC-->
-                    <mat-error *ngIf="!checkFile">Please Upload Music</mat-error>
+                    <mat-error *ngIf="!checkFile">Vui lòng tải nhạc lên</mat-error>
                     <app-upload-music (giveURLtoCreate)="onUploadMusic($event)"></app-upload-music><br>
                     <!--AVATAR-->
-                    <mat-error *ngIf="!checkAvatar">Please Upload Avatar Song</mat-error>
+                    <mat-error *ngIf="!checkAvatar">Vui lòng tải ảnh lên</mat-error>
                     <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar><br>
                     <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Save
                         <mat-icon matSuffix>production_quantity_limits</mat-icon>

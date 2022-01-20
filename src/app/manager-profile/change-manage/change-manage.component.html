@@ -1,10 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
-            <mat-card style="margin: 50px 0">
+            <mat-card style="margin: 50px 0 ; text-align: center ; background-color: steelblue" >
+                <mat-label>Xin chào : {{name}}</mat-label>
+                <br>
                 <img class="image2" [src]="avatar" height="300px" width="300px" alt="">
-                <button routerLink="/change-profile" mat-stroked-button color="accent" class="mat-button-toggle-group btn- btn-outline-primary">Change Profile</button>
-                <button routerLink="/change-password" mat-stroked-button color="accent" class="mat-button-toggle-group btn- btn-outline-primary">Change Password</button>
+                <div>
+                    <mat-label>Họ và tên : {{fullname}}</mat-label>
+                    <br>
+                    <mat-label> Địa chỉ : {{address}}</mat-label>
+                    <br>
+                    <mat-label>Email : {{email}}</mat-label>
+                    <br>
+                    <mat-label>Số điện thoại : {{phoneNumber}}</mat-label>
+                    <br>
+                </div>
+                <button routerLink="/change-profile" mat-stroked-button color="accent" class="mat-button-toggle-group btn- btn-outline-primary">Thay đổi thông tin cá nhân</button>
+                <button routerLink="/change-password" mat-stroked-button color="accent" class="mat-button-toggle-group btn- btn-outline-primary">Thay đổi mật khẩu</button>
             </mat-card>
         </div>
     </div>

@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   Form: any = {};
   signInForm: SignInForm;
   checkRegister = false;
-  status = 'Please fill in the form Login -->';
+  status = 'Vui lòng điền thông tin Đăng nhập';
   constructor(private authService: AuthService,
               private tokenService: TokenService,
               private router: Router) { }
@@ -40,6 +40,10 @@ export class LoginComponent implements OnInit {
         this.tokenService.setRole(data.roles);
         this.tokenService.setAvatar(data.avatar);
         this.tokenService.setID(data.id);
+        this.tokenService.setFullName(data.fullname);
+        this.tokenService.setAddress(data.address);
+        this.tokenService.setEmail(data.email);
+        this.tokenService.setPhoneNumber(data.phoneNumber);
         if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
         this.router.navigate(['admin-account']).then(() => {
           window.location.reload();
@@ -52,7 +56,7 @@ export class LoginComponent implements OnInit {
         }
       }
       else {
-        this.status = 'Username or password false, please login again';
+        this.status = 'Tên hoặc mật khẩu sai. Vui lòng nhập lại';
         this.checkRegister = true;
       }
     });

@@ -1,6 +1,6 @@
 #range {
   -webkit-appearance: none;
-  background-color: #1b0a3a;
+  background-color: rgba(10, 29, 58, 0.82);
   height: 4px;
   width: 94%;
   cursor: pointer;
@@ -38,7 +38,7 @@
   position: relative;
   animation: spin7 15s infinite;
   animation-timing-function: linear;
-  text-shadow: 3px 3px 10px #1b0a3a;
+  text-shadow: 3px 3px 10px rgba(26, 72, 90, 0.89);
   color: #F2E6D8;
   font-size: 15px;
 }
@@ -68,7 +68,7 @@
   display: flex;
   text-align: center;
   margin-bottom: -8px;
-  background-color: #1b0a3a;
+  background-color: #4c4163;
   padding: 16px 10px;
   border-radius: 5px;
   box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
@@ -76,7 +76,7 @@
 }
 #range {
   -webkit-appearance: none;
-  background-color: #1b0a3a;
+  background-color: #463b5a;
   height: 4px;
   width: 94%;
   cursor: pointer;
@@ -89,7 +89,7 @@
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  background: #1b0a3a;
+  background: #41315e;
   cursor: ew-resize;
 }
 
@@ -113,7 +113,7 @@
   position: relative;
   animation: spin7 15s infinite;
   animation-timing-function: linear;
-  text-shadow: 3px 3px 10px #1b0a3a;
+  text-shadow: 3px 3px 10px #41315e;
   color: #F2E6D8;
   font-size: 15px;
 }
@@ -131,7 +131,7 @@
 
 #range {
   -webkit-appearance: none;
-  background-color: #1b0a3a;
+  background-color: #4f416c;
   height: 4px;
   width: 94%;
   cursor: pointer;
@@ -164,19 +164,19 @@
   display: flex;
   text-align: center;
   margin-bottom: 12px;
-  background-color: rgba(56, 7, 7, 0.27);
+  background-color: rgba(111, 54, 54, 0.27);
   padding: 16px 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(125, 71, 71, 0.1);
 }
 .play{
   display: flex;
   text-align: center;
   margin-bottom: 12px;
-  background-color: rgb(27, 10, 58);
+  background-color: rgb(67, 49, 101);
   padding: 16px 10px;
   border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(114, 69, 69, 0.1);
 }
 
 .song .thumb {
@@ -195,7 +195,7 @@
   position: relative;
   animation: spin7 15s infinite;
   animation-timing-function: linear;
-  text-shadow: 3px 3px 10px #301660;
+  text-shadow: 3px 3px 10px #60488e;
   color: #F2E6D8;
   font-size: 18px;
 }

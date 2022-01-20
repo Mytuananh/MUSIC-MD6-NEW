@@ -74,6 +74,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { ShowPlaylistComponent } from './user-manager/user-playlist/show-playlist/show-playlist.component';
 import { ListAddSongComponent } from './user-manager/user-playlist/list-add-song/list-add-song.component';
 import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
+import {AdminGuard} from './security/admin.guard';
+import {UserGuard} from './security/user.guard';
+import {AuthGuard} from './security/auth.guard';
 
 
 
@@ -86,25 +89,25 @@ export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'admin-account', component: AdminAccountComponent},
-  {path: 'upload-avatar', component: UploadAvatarComponent},
-  {path: 'change-avatar', component: ChangeAvatarComponent},
-  {path: 'change-password' , component: ChangePasswrordComponent},
-  {path: 'change-manage', component: ChangeManageComponent},
-  {path: 'change-profile', component: ChangeProfileComponent},
+  {path: 'admin-account', component: AdminAccountComponent, canActivate: [AdminGuard]},
+  {path: 'upload-avatar', component: UploadAvatarComponent , canActivate: [AuthGuard]},
+  {path: 'change-avatar', component: ChangeAvatarComponent, canActivate: [AuthGuard]},
+  {path: 'change-password' , component: ChangePasswrordComponent, canActivate: [AuthGuard]},
+  {path: 'change-manage', component: ChangeManageComponent, canActivate: [AuthGuard]},
+  {path: 'change-profile', component: ChangeProfileComponent, canActivate: [AuthGuard]},
 
-  {path: 'update-song/:id', component: EditSongComponent},
-  {path: 'create-song', component: CreateSongComponent},
-  {path: 'update-singer/:id', component: EditSingerComponent},
-  {path: 'create-singer', component: CreateSingerComponent},
+  {path: 'update-song/:id', component: EditSongComponent ,canActivate: [AdminGuard]},
+  {path: 'create-song', component: CreateSongComponent ,canActivate:[AdminGuard]},
+  {path: 'update-singer/:id', component: EditSingerComponent ,canActivate:[AdminGuard]},
+  {path: 'create-singer', component: CreateSingerComponent ,canActivate:[AdminGuard]},
   {path: 'song-new', component: MusicNewComponent},
   {path: 'song-suggest', component: MusicSuggestComponent},
   {path: 'song-count', component: MusicCountComponent},
   {path: 'song-search/:searchKey', component: SongSearchComponent},
-  {path: 'create-song-user', component: CreateSongUserComponent},
-  {path: 'user-list', component: UserSongListComponent},
-  {path: 'home-playlist', component: HomePlaylistComponent},
-  {path: 'show-playlist/:id', component: ShowPlaylistComponent},
+  {path: 'create-song-user', component: CreateSongUserComponent ,canActivate:[UserGuard]},
+  {path: 'user-list', component: UserSongListComponent ,canActivate:[UserGuard]},
+  {path: 'home-playlist', component: HomePlaylistComponent ,canActivate:[UserGuard]},
+  {path: 'show-playlist/:id', component: ShowPlaylistComponent ,canActivate:[UserGuard]},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,

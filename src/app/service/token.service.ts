@@ -5,6 +5,9 @@ const ROLE_KEY = 'Role_key';
 const AVATAR_KEY = 'Avatar_key';
 const FULL_NAME_KEY = 'FullName_key';
 const ID_KEY = 'Id_Key';
+const ADDRESS_KEY = 'Address_key';
+const EMAIL_KEY = 'Email_key';
+const PHONE_NUMBER_KEY = 'PhoneNumber_key';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,9 +22,33 @@ export class TokenService {
   public getToken(): string{
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
-  public setFullName(fullName: string) {
+  public setAddress(address: string) {
+    window.sessionStorage.removeItem(ADDRESS_KEY);
+    window.sessionStorage.setItem(ADDRESS_KEY, address);
+  }
+
+  public getAddress(): string{
+    return window.sessionStorage.getItem(ADDRESS_KEY);
+  }
+  public setEmail(email: string) {
+    window.sessionStorage.removeItem(EMAIL_KEY);
+    window.sessionStorage.setItem(EMAIL_KEY, email);
+  }
+
+  public getEmail(): string{
+    return window.sessionStorage.getItem(EMAIL_KEY);
+  }
+  public setPhoneNumber(phoneNumber: string) {
+    window.sessionStorage.removeItem(PHONE_NUMBER_KEY);
+    window.sessionStorage.setItem(PHONE_NUMBER_KEY, phoneNumber);
+  }
+
+  public getPhoneNumber(): string{
+    return window.sessionStorage.getItem(PHONE_NUMBER_KEY);
+  }
+  public setFullName(fullname: string) {
     window.sessionStorage.removeItem(FULL_NAME_KEY);
-    window.sessionStorage.setItem(FULL_NAME_KEY, fullName);
+    window.sessionStorage.setItem(FULL_NAME_KEY, fullname);
   }
 
   public getFullName(): string{

@@ -7,23 +7,22 @@
                     <mat-error *ngIf="checkRegister" class="alert alert-danger">{{status}}</mat-error>
                     <!--USERNAME-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Username</mat-label>
-                        <input matInput placeholder="Enter username" name="username"  [(ngModel)]="Form.username" #username="ngModel" minlength="3" maxlength="50" required>
+                        <mat-label>Tên đăng nhập</mat-label>
+                        <input matInput placeholder="Enter username" name="username"  [(ngModel)]="Form.username" #username="ngModel"  maxlength="50" required>
                         <mat-icon matSuffix>account_circle</mat-icon>
-                        <mat-error *ngIf="username.hasError('required')">Your name is required.</mat-error>
-                        <mat-error *ngIf="username.hasError('minlength')">Your name must more than 3 character.</mat-error>
+                        <mat-error *ngIf="username.hasError('required')">Tên người dùng không được bỏ trống.</mat-error>
                     </mat-form-field><br>
                     <!--PASSWORD-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Enter your password</mat-label>
+                        <mat-label>Mật khẩu</mat-label>
                         <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="Form.password" #password="ngModel" minlength="6" maxlength="30" required>
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <mat-error *ngIf="password.hasError('required')">Your name is required.</mat-error>
-                        <mat-error *ngIf="password.hasError('minlength')">Your password must more than 6 character</mat-error>
+                        <mat-error *ngIf="password.hasError('required')">Mật khẩu không được bỏ trống.</mat-error>
+                        <mat-error *ngIf="password.hasError('minlength')">Mật khẩu tối thiểu 3 ki tự</mat-error>
                     </mat-form-field><br>
-                    <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Login
+                    <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Đăng nhập
                         <mat-icon matSuffix>login</mat-icon>
                     </button>
                 </form>

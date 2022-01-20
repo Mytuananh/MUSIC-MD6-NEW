@@ -167,16 +167,16 @@
 
                 <div class="ms_top_trend">
                     <a routerLink="create-song-user" *ngIf="checkUser">
-                        <button mat-button>Create Song</button>
+                        <button mat-button>Thêm mới bài hát</button>
                     </a>
                     <a routerLink="user-list" *ngIf="checkUser">
-                        <button mat-button>My Song List</button>
+                        <button mat-button>Danh sách các bài hát</button>
                     </a>
                     <a routerLink="home-playlist" *ngIf="checkUser">
-                        <button mat-button>My Playlist</button>
+                        <button mat-button>Album </button>
                     </a>
-                    <a *ngIf="checkAdmin"  routerLink="create-song" class="ms_btn login_btn"><span>Add Song</span></a>
-                    <a *ngIf="checkAdmin"  routerLink="create-singer" class="ms_btn login_btn"><span>Add Singer</span></a>
+                    <a *ngIf="checkAdmin"  routerLink="create-song" class="ms_btn login_btn"><span>Thêm bài hát</span></a>
+                    <a *ngIf="checkAdmin"  routerLink="create-singer" class="ms_btn login_btn"><span>Thêm ca sĩ</span></a>
                 </div>
                 <div class="ms_top_trend">
 
@@ -184,11 +184,11 @@
             </div>
             <div class="ms_top_right">
                 <div class="ms_top_lang">
-                    <a *ngIf="checkLogin" (click)="Logout()" class="ms_btn login_btn"><span>Log Out</span></a>
+                    <a *ngIf="checkLogin" (click)="Logout()" class="ms_btn login_btn"><span>Thoát</span></a>
                 </div>
                 <div class="ms_top_btn">
-                    <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn"><span>register</span></a>
-                    <a *ngIf="!checkLogin" routerLink="login" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>login</span></a>
+                    <a *ngIf="!checkLogin" routerLink="register"  class="ms_btn reg_btn"><span>Đăng kí</span></a>
+                    <a *ngIf="!checkLogin" routerLink="login" class="ms_btn login_btn" data-toggle="modal" data-target="#myModal1"><span>Đăng nhập</span></a>
                     <a *ngIf="checkLogin"  mat-button class="docs-button"> <img routerLink="change-avatar" class="avatar" [src]="avatar" alt=""></a>
                     <a *ngIf="checkLogin" routerLink="change-manage" mat-button><span>{{name}}</span></a>
                 </div>

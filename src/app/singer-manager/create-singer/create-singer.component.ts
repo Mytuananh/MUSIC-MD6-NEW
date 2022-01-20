@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class CreateSingerComponent implements OnInit {
   Form: any = {};
-  status = 'Please fill in the form to create singer';
+  status = 'Vui lòng điền vào đây để tạo ca sĩ';
   singer: Singer;
   checkAvatar = false;
   error1: any = {
@@ -40,13 +40,13 @@ export class CreateSingerComponent implements OnInit {
     );
     this.singerService.createSinger(this.singer).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error1)) {
-        this.status = 'The name singer is existed. Please try again!';
+        this.status = 'Tên đã tồn tại . Vui lòng nhập lại!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.error2)) {
-        this.status = 'Please upload avatar!';
+        this.status = 'Chọn ảnh!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)) {
-        this.status = 'Create singer success!';
+        this.status = 'Tạo mới thành công!';
       }
       this.router.navigate(['admin-account']);
     });
