@@ -6,26 +6,26 @@
                     <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <!--NAME-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Name:</mat-label>
+                        <mat-label>Tên ca sĩ:</mat-label>
                         <input matInput name="name" [(ngModel)]="Form.name" #name="ngModel">
                         <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                     </mat-form-field><br>
                     <!--AGE-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Age:</mat-label>
+                        <mat-label>Tuổi:</mat-label>
                         <input matInput name="age" [(ngModel)]="Form.age" #age="ngModel">
                         <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                     </mat-form-field><br>
                     <!--COUNTRYSIDE-->
                     <mat-form-field style="width: 400px" appearance="outline">
-                        <mat-label>Countryside:</mat-label>
+                        <mat-label>Quê quán:</mat-label>
                         <input matInput name="countryside" [(ngModel)]="Form.countryside" #countryside="ngModel">
                         <mat-icon matSuffix>description</mat-icon>
                     </mat-form-field><br>
                     <!--AVATAR-->
-                    <mat-error *ngIf="!checkAvatar">Please Upload Avatar Singer</mat-error>
+                    <mat-error *ngIf="!checkAvatar">Ảnh ca sĩ</mat-error>
                     <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar><br>
-                    <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Save
+                    <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Lưu
                         <mat-icon matSuffix>production_quantity_limits</mat-icon>
                     </button>
                 </form>

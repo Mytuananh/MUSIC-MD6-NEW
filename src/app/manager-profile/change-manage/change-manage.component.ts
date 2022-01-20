@@ -10,6 +10,10 @@ import {Router} from '@angular/router';
 export class ChangeManageComponent implements OnInit {
   avatar: string;
   name: string;
+  fullname: string;
+  address: string;
+  email: string;
+  phoneNumber:string;
 
   constructor(private tokenService: TokenService,
               private router: Router) {
@@ -19,6 +23,10 @@ export class ChangeManageComponent implements OnInit {
     if (this.tokenService.getToken()) {
       this.avatar = this.tokenService.getAvatar();
       this.name = this.tokenService.getName();
+      this.fullname = this.tokenService.getFullName();
+      this.address = this.tokenService.getAddress();
+      this.email = this.tokenService.getEmail();
+      this.phoneNumber =this.tokenService.getPhoneNumber();
     }
   }
 

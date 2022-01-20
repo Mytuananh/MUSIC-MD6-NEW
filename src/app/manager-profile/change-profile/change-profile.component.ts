@@ -16,7 +16,7 @@ export class ChangeProfileComponent implements OnInit {
   ]);
 Form: any = {};
 changeProfile: ChangeProfile;
-status = 'Please fill in the form change you Profile!';
+status = 'Mời bạn nhập vào thông tin cần chỉnh sửa!';
   error1: any = {message: 'nofullname'};
   error2: any = {message: 'noemail'};
   error3: any = {message: 'nophonenumber'};
@@ -40,16 +40,18 @@ status = 'Please fill in the form change you Profile!';
    );
    this.authService.changeProfile(this.changeProfile).subscribe(data =>{
      if (JSON.stringify(data)==JSON.stringify(this.error1)){
-       this.status = 'The Full Name is existed .Please try again!'
+       this.status = 'Tên đã tồn tại> Vui lòng nhập lại!'
      }
      if (JSON.stringify(data)==JSON.stringify(this.error2)){
-       this.status = 'The email is existed .Please try again!'
+       this.status = 'Email đã tồn tại. Vui lòng nhập lại!'
      }
      if (JSON.stringify(data)==JSON.stringify(this.error3)){
-       this.status = 'The Phone Number is existed .Please try again!'
+       this.status = 'Số điện thoại đã tồn tại.Vui lòng nhập lại!'
      }
      if (JSON.stringify(data)==JSON.stringify(this.success)){
-       this.status = 'Change success!';
+       alert('Thay đổi thông tin thành công!');
+       window.sessionStorage.clear();
+       window.location.reload();
      }
    });
   }

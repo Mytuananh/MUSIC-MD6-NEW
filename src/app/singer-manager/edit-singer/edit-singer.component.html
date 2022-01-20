@@ -2,18 +2,17 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
-                <mat-card-title align="center" class="alert alert-primary">ADMIN MANAGE</mat-card-title>
+                <mat-card-title align="center" class="alert alert-primary">Phần quản lí của admin</mat-card-title>
                 <mat-tab-group>
                     <mat-tab label="Thông tin ca sĩ">
                         <div *ngIf="singer">
-                            <h3>Old Singer</h3>
-                            <b>Name: </b>
+                            <b>Tên ca sĩ: </b>
                             <i style="color: #f92672">{{singer.name}}</i><br>
-                            <b>Age: </b>
+                            <b>Tuổi: </b>
                             <i style="color: #f92672">{{singer.age}}</i><br>
-                            <b>Countryside:</b>
+                            <b>Quê quán:</b>
                             <i style="color: #f92672">{{singer.countryside}}</i><br>
-                            <b>Avatar: </b>
+                            <b>Ảnh đại diện: </b>
                             <img class="imageSong" [src]="singer.avatar">
                         </div></mat-tab>
                     <mat-tab label="Chỉnh sửa thông tin ca sĩ">
@@ -21,31 +20,31 @@
                             <mat-error class="alert alert-primary">{{status}}</mat-error>
                             <!--NAME-->
                             <mat-form-field style="width: 400px" appearance="outline">
-                                <mat-label>Name:</mat-label>
+                                <mat-label>Tên ca sĩ:</mat-label>
                                 <input matInput name="name" [(ngModel)]="singer.name" #name="ngModel">
                                 <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                             </mat-form-field><br>
                             <!--AGE-->
                             <mat-form-field style="width: 400px" appearance="outline">
-                                <mat-label>Age:</mat-label>
+                                <mat-label>Tuổi:</mat-label>
                                 <input matInput name="age" [(ngModel)]="singer.age" #age="ngModel">
                                 <mat-icon matSuffix>drive_file_rename_outline</mat-icon>
                             </mat-form-field><br>
                             <!--COUNTRYSIDE-->
                             <mat-form-field style="width: 400px" appearance="outline">
-                                <mat-label>Countryside:</mat-label>
+                                <mat-label>Quê quán:</mat-label>
                                 <input matInput name="countryside" [(ngModel)]="singer.countryside" #countryside="ngModel">
                                 <mat-icon matSuffix>description</mat-icon>
                             </mat-form-field><br>
                             <!--AVATAR-->
                             <app-upload-avatar (giveURLtoCreate)="onUploadAvatar($event)"></app-upload-avatar><br>
-                            <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Edit Singer
+                            <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">SỬA
                                 <mat-icon matSuffix>production_quantity_limits</mat-icon>
                             </button>
                         </form>
                     </mat-tab>
                 </mat-tab-group>
-                <button (click)="Back()" mat-raised-button color="primary">Back</button>
+                <button (click)="Back()" mat-raised-button color="primary">Quay lại</button>
             </mat-card>
         </div>
     </div>

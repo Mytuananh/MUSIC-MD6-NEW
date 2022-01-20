@@ -4,9 +4,9 @@
     <form [formGroup]="formdata" (ngSubmit)="onSubmit()" *ngIf="idUser">
         <div >
             <mat-form-field style="width: 350px" appearance="outline">
-                <mat-label>Comment:</mat-label>
+                <mat-label>Bình luận:</mat-label>
                 <input formControlName="text" matInput placeholder="Viết bình luận..." required>
-                <mat-error>The comment is required!</mat-error>
+                <mat-error>Bạn phải để lại bình luận!</mat-error>
                 <button matSuffix type="submit" [disabled]="!formdata.valid"><mat-icon>send</mat-icon></button>
             </mat-form-field>
         </div>

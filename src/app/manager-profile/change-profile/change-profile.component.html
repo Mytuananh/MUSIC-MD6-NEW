@@ -15,32 +15,32 @@
                         </div>
                         <div class="ms_pro_form">
                             <div class="form-group">
-                                <label>Your Full Name *</label>
+                                <label>Họ và tên *</label>
                                 <input type="text" placeholder="Bella Scott" class="form-control" name="fullName" [(ngModel)]="Form.fullName" #fullName = "ngModel" required>
-                                <mat-error *ngIf="fullName.hasError('required')">Your email is required.</mat-error>
+                                <mat-error *ngIf="fullName.hasError('required')">Không được để trống.</mat-error>
 
                             </div>
                             <div class="form-group">
-                                <label>Your Email *</label>
+                                <label>Email của bạn *</label>
                                 <input type="text" placeholder="ex.@dummymail.com" class="form-control" name="email" [(ngModel)]="Form.email" [formControl]="emailFormControl" required>
-                                <mat-error *ngIf="emailFormControl.hasError('required')">Your email is required.</mat-error>
-                                <mat-error *ngIf="emailFormControl.hasError('minlength')">The email is valid. Please try again!</mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">Email không được để trống.</mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('minlength')">Email đã tồn tại . Vui lòng nhập lại!</mat-error>
 
                             </div>
                             <div class="form-group">
-                                <label>Your Address *</label>
+                                <label>Địa chỉ *</label>
                                 <input type="text" placeholder="******" class="form-control" name="address" [(ngModel)]="Form.address" #address = "ngModel" required="">
-                                <mat-error *ngIf="address.hasError('required')">Your address is required.</mat-error>
+                                <mat-error *ngIf="address.hasError('required')">địa chỉ không được bỏ trống.</mat-error>
 
                             </div>
                             <div class="form-group">
-                                <label>You phone Number *</label>
+                                <label>Số điện thoại *</label>
                                 <input type="text" placeholder="phone number" class="form-control" name="phoneNumber" [(ngModel)]="Form.phoneNumber" #phoneNumber = "ngModel" required="" >
-                                <mat-error *ngIf="phoneNumber.hasError('required')">Your phone number is required.</mat-error>
+                                <mat-error *ngIf="phoneNumber.hasError('required')">Số điện thoại không được bỏ trống.</mat-error>
 
                             </div>
                             <div class="pro-form-btn text-center marger_top15">
-                                <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Save
+                                <button  style="width: 400px" mat-stroked-button class="mat-button-toggle-group btn-outline-primary">Lưu
                                 </button>
                             </div>
                         </div>

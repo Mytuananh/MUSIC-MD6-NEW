@@ -12,7 +12,7 @@ import {SingerService} from '../../service/singer.service';
 })
 export class EditSingerComponent implements OnInit {
   singer: Singer;
-  status = 'Please fill in the form to update singer';
+  status = 'Vui lòng nhập thông tin để sửa';
   error1: any = {
     message: 'no_name_singer'
   };
@@ -41,10 +41,10 @@ export class EditSingerComponent implements OnInit {
   ngSubmit() {
     this.singerService.updateSinger(this.singer.id, this.singer).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error1)) {
-        this.status = 'The name singer is existed. Please try again!';
+        this.status = 'Tên ca sĩ đã tồn tại . Vui lòng nhập lại!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)) {
-        this.status = 'Update singer success!';
+        this.status = 'Sửa thành công!';
       }
     });
   }

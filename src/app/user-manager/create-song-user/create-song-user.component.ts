@@ -15,7 +15,7 @@ export class CreateSongUserComponent implements OnInit {
   roles2: any = ['ADMIN'];
   roles1: any = ['USER'];
   Form: any = {};
-  status = 'Please fill in the form to create song';
+  status = 'Vui lòng điền vào đây để tạo bài hát';
   song: Song;
   checkAvatar = false;
   checkFile = false;
@@ -57,16 +57,16 @@ export class CreateSongUserComponent implements OnInit {
     );
     this.songService.createSong(this.song).subscribe(data => {
       if (JSON.stringify(data) === JSON.stringify(this.error1)) {
-        this.status = 'The name song is existed. Please try again!';
+        this.status = 'Tên bài hát đã tồn tại > Vui lòng nhập lại!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.error2)) {
-        this.status = 'Please upload avatar!';
+        this.status = 'Vui lòng chọn ảnh!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.error3)) {
-        this.status = 'Please upload music!';
+        this.status = 'Mời chọn nhạc!';
       }
       if (JSON.stringify(data) === JSON.stringify(this.success)) {
-        this.status = 'Create song success!';
+        this.status = 'Tạo mới thành công!';
       }
       if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
         this.router.navigate(['admin-account']).then(() => {
