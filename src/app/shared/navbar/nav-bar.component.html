@@ -158,9 +158,7 @@
                     <form  class="newsletter-form" data-toggle="validator" #f="ngForm" (ngSubmit)="ngSubmit(f)" novalidate >
                     <input type="search" name="searchKey" ngModel class="form-control" placeholder="Tìm bài hát..."
                            required="" autocomplete="off">
-                        <button class="box-btn" type="submit">
-                            Tìm Kiếm
-                        </button>
+                        <button class="box-btn" type="submit">Tìm Kiếm</button>
                         <div id="validator-newsletter" class="form-result"></div>
                     </form>
 
@@ -168,6 +166,15 @@
                 </div>
 
                 <div class="ms_top_trend">
+                    <a routerLink="create-song-user" *ngIf="checkUser">
+                        <button mat-button>Create Song</button>
+                    </a>
+                    <a routerLink="user-list" *ngIf="checkUser">
+                        <button mat-button>My Song List</button>
+                    </a>
+                    <a routerLink="home-playlist" *ngIf="checkUser">
+                        <button mat-button>My Playlist</button>
+                    </a>
                     <a *ngIf="checkAdmin"  routerLink="create-song" class="ms_btn login_btn"><span>Add Song</span></a>
                     <a *ngIf="checkAdmin"  routerLink="create-singer" class="ms_btn login_btn"><span>Add Singer</span></a>
                 </div>

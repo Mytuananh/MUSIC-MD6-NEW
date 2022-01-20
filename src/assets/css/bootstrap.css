@@ -558,6 +558,7 @@ pre code {
 
 @media (min-width: 1200px) {
   .container {
+    margin-top: 119px;
     max-width: 1140px;
   }
 }
@@ -2415,6 +2416,9 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
   color: #fff;
   background-color: #28a745;
   border-color: #28a745;

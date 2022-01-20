@@ -65,6 +65,15 @@ import { UserAccountComponent } from './form-login/user-account/user-account.com
 import { CommentDialogComponent } from './song-manager/comment-dialog/comment-dialog.component';
 import { SongSearchComponent } from './song-manager/song-search/song-search.component';
 import {NavBarComponent} from './shared/navbar';
+import { CreateSongUserComponent } from './user-manager/create-song-user/create-song-user.component';
+import { UserSongListComponent } from './user-manager/user-song-list/user-song-list.component';
+import { HomePlaylistComponent } from './user-manager/user-playlist/home-playlist/home-playlist.component';
+import { DeletePlaylistComponent } from './user-manager/user-playlist/delete-playlist/delete-playlist.component';
+import { CreatePlaylistComponent } from './user-manager/user-playlist/create-playlist/create-playlist.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ShowPlaylistComponent } from './user-manager/user-playlist/show-playlist/show-playlist.component';
+import { ListAddSongComponent } from './user-manager/user-playlist/list-add-song/list-add-song.component';
+import {_MatMenuDirectivesModule, MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -92,6 +101,10 @@ export const appRoutes: Routes = [
   {path: 'song-suggest', component: MusicSuggestComponent},
   {path: 'song-count', component: MusicCountComponent},
   {path: 'song-search/:searchKey', component: SongSearchComponent},
+  {path: 'create-song-user', component: CreateSongUserComponent},
+  {path: 'user-list', component: UserSongListComponent},
+  {path: 'home-playlist', component: HomePlaylistComponent},
+  {path: 'show-playlist/:id', component: ShowPlaylistComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -101,7 +114,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent, CommentDialogComponent, SongSearchComponent, NavBarComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, AdminAccountComponent, UploadAvatarComponent, ChangeAvatarComponent, ListUserComponent, ListSongComponent, DialogComponent, EditSongComponent, UploadMusicComponent, CreateSongComponent, EditSingerComponent, CreateSingerComponent, SingerListComponent, ChangePasswrordComponent, ChangeManageComponent, ChangeProfileComponent, AudioPlayerComponent, SecondsToMinutesPipe, MusicNewComponent, MusicSuggestComponent, MusicCountComponent, SongDetailComponent, UserAccountComponent, CommentDialogComponent, SongSearchComponent, NavBarComponent, CreateSongUserComponent, UserSongListComponent, HomePlaylistComponent, DeletePlaylistComponent, CreatePlaylistComponent, ShowPlaylistComponent, ListAddSongComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -117,7 +130,7 @@ export const appRoutes: Routes = [
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     // tslint:disable-next-line:max-line-length
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule, MatGridListModule, MatSliderModule, MatExpansionModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule, MatPaginatorModule, MatProgressSpinnerModule, MatTableModule, MatTabsModule, MatDialogModule, MatDatepickerModule, MatSelectModule, MatGridListModule, MatSliderModule, MatExpansionModule, MatProgressBarModule, _MatMenuDirectivesModule, MatMenuModule
   ],
   providers: [httpInterceptorProvider],
   exports: [

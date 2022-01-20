@@ -1,0 +1,26 @@
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close><mat-icon style="color: red">cancel</mat-icon></button>
+</mat-dialog-actions>
+<div class="container" >
+    <div class="row">
+        <div class="col-12">
+            <div style="margin-top: 20px;">
+                <form [formGroup]="formdata" (ngSubmit)="onSubmit()">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Name Playlist</label>
+                        <input formControlName="name" type="text" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Avatar</label>
+                        <input formControlName="file" type="text" [(ngModel)]="downloadURL" style="display: none">
+                        <input type="file" class="form-control" (change)="onFileChanged($event)">
+                        <mat-progress-bar *ngIf="checkUploadFile" mode="indeterminate"></mat-progress-bar>
+                    </div>
+                    <br>
+                    <button type="submit" [disabled]="!formdata.valid" class="btn btn-success">Create </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
