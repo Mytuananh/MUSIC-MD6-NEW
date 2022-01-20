@@ -4,6 +4,7 @@ import {environment} from '../../environments/environment.prod';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Song} from '../model/Song';
 import {Comments} from '../model/Comments';
+import {DeleteSong} from '../model/DeleteSong';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,14 @@ export class SongService {
   API_SONG_LIKE = environment.API_LOCAL + 'like';
   API_SONG_COMMENT = environment.API_LOCAL + 'comment';
   API_SONG_SEARCH = environment.API_LOCAL + 'search';
+  API_SONG_USER = environment.API_LOCAL + 'songs';
+  API_PLAYLIST_USER = environment.API_LOCAL + 'playlists';
+  API_PLAYLIST_DELETE = environment.API_LOCAL + 'deletePlaylist';
+  API_PLAYLIST_CREATE = environment.API_LOCAL + 'createPlaylist';
+  API_PLAYLIST_SONG = environment.API_LOCAL + 'playlist';
+  API_PLAYLIST_SONG_DELETE = environment.API_LOCAL + 'delete-song-playlist';
+  API_SONG_NAME = environment.API_LOCAL + 'findSongByName';
+  API_SONG_ADD_PLAYLIST = environment.API_LOCAL + 'addSongToList';
 
   checkLogin$ = new BehaviorSubject<string>('');
   checkCurrent$ = new BehaviorSubject<string>('');
@@ -91,5 +100,37 @@ export class SongService {
 
   searchSongByNameOrSinger(nameSearch: string): Observable<any> {
     return this.http.get<any>(this.API_SONG_SEARCH + '/' + nameSearch);
+  }
+
+  getSongListByUser_Id(id: any) {
+    return this.http.get(this.API_SONG_USER + '/' + id)
+  }
+
+  findAllPlaylist(id: any) {
+    return this.http.get(this.API_PLAYLIST_USER + '/' + id)
+  }
+
+  deletePlaylist(id: any) {
+    return this.http.delete(this.API_PLAYLIST_DELETE + '/' + id)
+  }
+
+  createPlaylist(newList: any) {
+    return this.http.post(this.API_PLAYLIST_CREATE, newList)
+  }
+
+  getPlaylist(idPlaylist: number) {
+    return this.http.get(this.API_PLAYLIST_SONG + '/' + idPlaylist)
+  }
+
+  removeSong(deletethis: DeleteSong) {
+    return this.http.put(this.API_PLAYLIST_SONG_DELETE, deletethis)
+  }
+
+  searchSongByName(name: string) {
+    return this.http.get(this.API_SONG_NAME + '/' + name)
+  }
+
+  addSongToList(playList: any) {
+    return this.http.post(this.API_SONG_ADD_PLAYLIST, playList)
   }
 }

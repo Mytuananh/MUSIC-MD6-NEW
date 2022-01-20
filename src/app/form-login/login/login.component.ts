@@ -45,6 +45,11 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         });
       }
+        else if (JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles1)){
+          this.router.navigate(['']).then(() => {
+            window.location.reload();
+          });
+        }
       }
       else {
         this.status = 'Username or password false, please login again';

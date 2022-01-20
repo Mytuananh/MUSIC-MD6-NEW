@@ -1,0 +1,71 @@
+
+<!-- List Music -->
+<mat-card>
+    <div class="playlist">
+        <div class="song" *ngFor="let s of songs;index as i" [ngClass]="{'play':currentIndex==i}">
+            <div class="thumb" (click)="playThis(i)">
+                <mat-icon *ngIf="!checkplay&&currentIndex==i" >pause_circle_outline</mat-icon>
+                <mat-icon *ngIf="checkplay&&currentIndex==i" >play_circle_outline</mat-icon>
+                <mat-icon *ngIf="currentIndex!=i" >play_circle_outline</mat-icon>
+            </div>
+            <div class="body" (click)="playThis(i)">
+                <h3 >{{s.name}}</h3>
+            </div>
+            <div class="body" (click)="playThis(i)">
+                <h3 *ngFor="let singer of s.singers" >Ca sĩ :{{singer.name}}</h3>
+            </div>
+            <div class="body" (click)="playThis(i)">
+                <h3 >Lượt nghe :{{s.count}}</h3>
+            </div>
+            <div class="body" (click)="playThis(i)">
+                <h3 >Lượt like :{{s.countLike}}</h3>
+            </div>
+            <div class="option">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="deleteSong(s.id)">
+                        <mat-icon>delete</mat-icon>
+                        <span>Xóa khỏi danh sách</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+</mat-card>
+<button (click)="openDialog()" class="btn btn-success" style="position: absolute;right: 20px; width: 100px; height: 50px; font-size: 13px">Thêm bài hát</button>
+<div id="control" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/musicque-c225c.appspot.com/o/anh-background-music.jpg?alt=media&token=651b0b15-c308-472c-9ee3-54531983492f);">
+    <!-- Control -->
+    <br>
+    <p id="name-song" *ngIf="nameSong">Đang phát bài {{nameSong}}</p>
+    <mat-grid-list cols="5" rowHeight="35px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-icon style="color: aliceblue">repeat</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile (click)="prev()" colspan="1" rowspan="1">
+            <mat-icon style="color: aliceblue">skip_previous</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile (click)="play()" colspan="1" rowspan="1">
+            <mat-icon *ngIf="checkplay" style="color: aliceblue">play_circle_outline</mat-icon>
+            <mat-icon *ngIf="!checkplay" style="color: aliceblue">pause_circle_outline</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile (click)="next()" colspan="1" rowspan="1">
+            <mat-icon style="color: aliceblue">skip_next</mat-icon>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-icon style="color: aliceblue">shuffle</mat-icon>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- Range -->
+    <div id="slider-container">
+        <div id="progress-bar-cover">
+            <span style="color: white">{{currentTime}}</span>
+            <input type="range" min="0" max="{{totalRang}}" value="{{currentRange}}" id="range" #myRange
+                   (input)="setProsess(myRange)">
+            <span style="color: white">{{totalTime}}</span>
+        </div>
+    </div>
+    <br>
+</div>

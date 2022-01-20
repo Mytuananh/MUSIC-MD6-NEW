@@ -13,10 +13,12 @@ export class NavBarComponent  implements OnInit{
   searchKey: string;
   songs: Song[] = [];
   roles2: any = ['ADMIN'];
+  roles1: any = ['USER'];
   avatar: string;
   name: string;
   checkLogin = false;
   checkAdmin = false;
+  checkUser = false;
   constructor(private tokenService: TokenService,
               private router: Router) {
   }
@@ -29,11 +31,14 @@ export class NavBarComponent  implements OnInit{
     if (this.tokenService.getToken() && JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles2)){
       this.checkAdmin = true;
     }
+    if (this.tokenService.getToken() && JSON.stringify(this.tokenService.getRole()) === JSON.stringify(this.roles1)){
+      this.checkUser = true;
+    }
   }
 
   Logout() {
     this.tokenService.Logout();
-    this.router.navigate(['login']).then(() => {
+    this.router.navigate(['']).then(() => {
       window.location.reload();
     });
   }
